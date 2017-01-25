@@ -1,0 +1,40 @@
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\APIs
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode Linker
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\Help.chw
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\Help.chm
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode.dll
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode.exp
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode.lib
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_AutoComplete.dll
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_AutoComplete.exp
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_AutoComplete.lib
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_CodeIndent.dll
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_CodeIndent.exp
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_CodeIndent.lib
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_ColorCode.dll
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_ColorCode.exp
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_ColorCode.lib
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_IDEEnhancer.dll
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_IDEEnhancer.exp
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_IDEEnhancer.lib
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_Statistic.dll
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_Statistic.exp
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_Statistic.lib
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_TipsBar.dll
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_TipsBar.exp
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_TipsBar.lib
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_Windows.dll
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_Windows.exp
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode_Windows.lib
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\udAPI.vbd
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\udcResult.vbd
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\Uninstall.exe
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\UnReg All.bat
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\APIs\MAPI32.MDB
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\APIs\Settings.ini
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\APIs\WIN32API.MDB
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\APIs\GDIP.MDB
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode Linker\Style.manifest
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode Linker\UAC.manifest
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode Linker\UAC_Style.manifest
+C:\Users\liuzi\Desktop\iCode\Setup\资源文件生成\File\iCode Linker\iCodeLinker.exe

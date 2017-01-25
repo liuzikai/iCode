@@ -1,0 +1,9 @@
+VBGROUP 5.0
+StartupProject=iCode\iCode.vbp
+Project=Components\Windows+Linker\iCode_Windows.vbp
+Project=Components\IDEEnhancer\iCode_IDEEnhancer.vbp
+Project=Components\CodeStatistic\iCode_Statistic.vbp
+Project=Components\TipsBar\iCode_TipsBar.vbp
+Project=Components\CodeIndent\iCode_CodeIndent.vbp
+Project=Components\AutoComplete\iCode_AutoComplete.vbp
+Project=Components\ColorCode\iCode_ColorCode.vbp

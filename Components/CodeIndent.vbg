@@ -1,0 +1,3 @@
+VBGROUP 5.0
+Project=CodeIndent\iCode_CodeIndent.vbp
+StartupProject=CodeIndent\iCode_CodeIndent_Loader.vbp

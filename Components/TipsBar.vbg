@@ -1,0 +1,3 @@
+VBGROUP 5.0
+Project=TipsBar\iCode_TipsBar.vbp
+StartupProject=TipsBar\iCode_TipsBar_Loader.vbp

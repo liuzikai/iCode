@@ -1,0 +1,714 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Begin VB.UserDocument udAPI 
+   ClientHeight    =   3360
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   3270
+   HScrollSmallChange=   15
+   ScaleHeight     =   224
+   ScaleMode       =   3  'Pixel
+   ScaleWidth      =   218
+   ScrollBars      =   0  'None
+   VScrollSmallChange=   15
+   Begin VB.CheckBox chkInsertName 
+      Caption         =   "光标处插入名称"
+      Height          =   195
+      Left            =   1620
+      TabIndex        =   9
+      Top             =   2760
+      Value           =   1  'Checked
+      Width           =   1575
+   End
+   Begin VB.CheckBox chkDeclaration 
+      Caption         =   "插入声明 ↓"
+      Height          =   195
+      Left            =   60
+      TabIndex        =   8
+      Top             =   2760
+      Width           =   1335
+   End
+   Begin VB.CommandButton cmdRefresh 
+      Height          =   300
+      Left            =   2880
+      Picture         =   "udAPI.dox":0000
+      Style           =   1  'Graphical
+      TabIndex        =   7
+      ToolTipText     =   "刷新项目是否已被声明"
+      Top             =   60
+      Width           =   300
+   End
+   Begin VB.TextBox F_Key 
+      Appearance      =   0  'Flat
+      Height          =   270
+      Left            =   60
+      TabIndex        =   2
+      Top             =   2400
+      Width           =   3135
+   End
+   Begin VB.ComboBox cmbRecord 
+      Height          =   300
+      ItemData        =   "udAPI.dox":0342
+      Left            =   60
+      List            =   "udAPI.dox":0344
+      TabIndex        =   1
+      Text            =   "请选择API库"
+      Top             =   60
+      Width           =   2775
+   End
+   Begin VB.CommandButton cmdScope 
+      Caption         =   "Public"
+      Height          =   240
+      Left            =   60
+      TabIndex        =   0
+      Top             =   3060
+      Width           =   915
+   End
+   Begin MSComctlLib.ImageList iImageList 
+      Left            =   3720
+      Top             =   3420
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   14
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   13
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":0346
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":0638
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":092A
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":0C1C
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":0F0E
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":1200
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":14F2
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":17E4
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":1AD6
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":1DC8
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":20BA
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":23AC
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udAPI.dox":269E
+            Key             =   ""
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.ProgressBar PBar 
+      Height          =   240
+      Left            =   900
+      TabIndex        =   3
+      Top             =   4440
+      Visible         =   0   'False
+      Width           =   2385
+      _ExtentX        =   4207
+      _ExtentY        =   423
+      _Version        =   393216
+      Appearance      =   0
+      Scrolling       =   1
+   End
+   Begin MSComctlLib.TreeView iTreeView 
+      Height          =   1875
+      Index           =   0
+      Left            =   60
+      TabIndex        =   4
+      Top             =   420
+      Width           =   3135
+      _ExtentX        =   5530
+      _ExtentY        =   3307
+      _Version        =   393217
+      Indentation     =   0
+      LabelEdit       =   1
+      Style           =   1
+      FullRowSelect   =   -1  'True
+      ImageList       =   "iImageList"
+      Appearance      =   0
+   End
+   Begin VB.Label lblModule 
+      AutoSize        =   -1  'True
+      Caption         =   "Label1"
+      Height          =   180
+      Left            =   1020
+      TabIndex        =   6
+      ToolTipText     =   "请从""工程资源管理器""中选择插入位置"
+      Top             =   3060
+      Width           =   540
+   End
+   Begin VB.Label lblLoading 
+      Appearance      =   0  'Flat
+      AutoSize        =   -1  'True
+      BackColor       =   &H80000005&
+      BackStyle       =   0  'Transparent
+      Caption         =   "加载中..."
+      ForeColor       =   &H80000008&
+      Height          =   180
+      Left            =   1740
+      TabIndex        =   5
+      Top             =   4200
+      Visible         =   0   'False
+      Width           =   810
+   End
+   Begin VB.Menu mnuMain 
+      Caption         =   "Main"
+      Visible         =   0   'False
+      Begin VB.Menu mnuCopyName 
+         Caption         =   "复制名称(&N)"
+      End
+      Begin VB.Menu mnuCopyDeclaration 
+         Caption         =   "复制声明(&D)"
+      End
+      Begin VB.Menu mnuLine1 
+         Caption         =   "-"
+      End
+      Begin VB.Menu mnuRefresh 
+         Caption         =   "刷新(&R)"
+      End
+      Begin VB.Menu mnuReload 
+         Caption         =   "重新加载数据(&R)"
+      End
+   End
+End
+Attribute VB_Name = "udAPI"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+Option Explicit
+
+Private FilePath As String
+Private Const SettingFileName As String = "Settings.ini"
+
+Private Data_RecordCount As Long
+Private Data_RecordCaption() As String
+Private Data_RecordName() As String
+Private Data_RecordFile() As String
+Private Enum Data_Enum_RecordType
+    Data_RT_Declares = 1
+    Data_RT_Const = 2
+    Data_RT_Types = 3
+End Enum
+Private Data_RecordType() As Data_Enum_RecordType
+
+Private Declare Function WritePrivateProfileString Lib "kernel32" Alias "WritePrivateProfileStringA" (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpString As Any, ByVal lpFileName As String) As Long
+Private Declare Function GetPrivateProfileString Lib "kernel32" Alias "GetPrivateProfileStringA" (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpDefault As String, ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
+
+Private Data_Cnn As New ADODB.Connection
+Private Data_RS As New ADODB.Recordset
+
+Private STV_Count As Long
+Private tvTarget As TreeView
+
+Private Const UI_Dis = 4
+
+Private WithEvents VBCEvents As VBComponentsEvents
+Attribute VBCEvents.VB_VarHelpID = -1
+
+Private Sub cmdRefresh_Click()
+    SetUsedMembers
+End Sub
+
+Private Sub cmdScope_Click()
+    If cmdScope.Caption = "Public" Then cmdScope.Caption = "Private" Else cmdScope.Caption = "Public"
+    F_Key.SetFocus
+End Sub
+
+Private Sub F_Key_KeyUp(KeyCode As Integer, Shift As Integer)
+    If KeyCode = 13 Then
+        iTreeView_DblClick tvTarget.Index
+    End If
+End Sub
+
+Private Sub iTreeView_BeforeLabelEdit(Index As Integer, Cancel As Integer)
+    Cancel = True
+End Sub
+
+Private Sub iTreeView_DblClick(Index As Integer)
+    
+    If iTreeView(Index).DropHighlight Is Nothing Then Exit Sub
+    
+    Set CodeOpe.TargetCodePane = VBIns.SelectedVBComponent.CodeModule.CodePane
+    If chkDeclaration.Value = 1 Then
+        CodeOpe.AddCodeToDeclaration cmdScope.Caption & " " & iTreeView(Index).DropHighlight.Tag
+    End If
+    Set CodeOpe.TargetCodePane = Nothing
+    If chkInsertName.Value = 1 Then CodeOpe.InsertToCaret iTreeView(Index).DropHighlight.Key
+        
+    SetUsedMembers
+    chkDeclaration.Value = 0
+    CodeOpe.TargetCodePane.Window.SetFocus
+End Sub
+
+
+Private Sub iTreeView_MouseDown(Index As Integer, Button As Integer, Shift As Integer, x As Single, y As Single)
+    If Not (iTreeView(Index).DropHighlight Is iTreeView(Index).HitTest(1, y)) Then
+        Set iTreeView(Index).DropHighlight = iTreeView(Index).HitTest(1, y)
+        If iTreeView(Index).DropHighlight Is Nothing Then Exit Sub
+        chkDeclaration.Value = -CLng(iTreeView(Index).DropHighlight.Image > 10 Or CodeOpe.bInDeclaration)
+        If CodeOpe.bInDeclaration Then chkInsertName.Value = 0
+    End If
+End Sub
+
+Private Sub iTreeView_MouseUp(Index As Integer, Button As Integer, Shift As Integer, x As Single, y As Single)
+    If Button = vbRightButton Then
+        UserDocument.PopupMenu mnuMain
+    End If
+End Sub
+
+'静态TV
+Public Function STV_Create(ByVal Tag As String) As Long
+    
+    On Error Resume Next
+    
+    STV_Count = STV_Count + 1
+    
+    Load iTreeView(STV_Count)
+    iTreeView(STV_Count).Top = iTreeView(0).Top
+    iTreeView(STV_Count).Left = iTreeView(0).Left
+    iTreeView(STV_Count).Height = iTreeView(0).Height
+    iTreeView(STV_Count).Visible = False
+    
+    iTreeView(STV_Count).Tag = Tag
+    
+    STV_Create = STV_Count
+    
+End Function
+
+Public Function STV_Find(ByVal Tag As String) As Long
+    Dim i As Long
+    For i = 1 To STV_Count
+        If iTreeView(i).Tag = Tag Then Exit For
+    Next
+    If i > STV_Count Then
+        STV_Find = -1
+    Else
+        STV_Find = i
+    End If
+End Function
+
+
+Public Sub TV_SetTarget(ByVal Index As Long)
+    
+    If Index < 0 Then Exit Sub
+    
+    If Not (tvTarget Is Nothing) Then
+        tvTarget.Visible = False
+        Set tvTarget.SelectedItem = Nothing
+        iTreeView(Index).Top = tvTarget.Top
+        iTreeView(Index).Left = tvTarget.Left
+        iTreeView(Index).Width = tvTarget.Width
+        iTreeView(Index).Height = tvTarget.Height
+    End If
+    
+    Set tvTarget = iTreeView(Index)
+    tvTarget.Visible = True
+    
+End Sub
+
+Private Sub TV_ReadyToAdd(ByVal PBarMaximum As Long)
+    tvTarget.Visible = False
+    If PBarMaximum > 100 Then
+        SetLoadingBar PBarMaximum + 3, "正在加载..."
+    End If
+    DoEvents
+End Sub
+
+Private Sub TV_AddItem(ByVal itsName As String, ByVal Code As String, ByVal itsType As AC_ItemKind)
+    On Error Resume Next
+    tvTarget.Nodes.Add(, , itsName, itsName, itsType, itsType).Tag = Code
+    If PBar.Visible Then PBar.Value = PBar.Value + 1
+End Sub
+
+Private Sub TV_FinishAdding()
+    tvTarget.Visible = True
+    PBar.Visible = False
+    lblLoading.Visible = False
+End Sub
+
+Private Sub Data_LoadToTV(ByVal RecordIndex As Long)
+
+    Data_Connect Data_RecordFile(RecordIndex)
+    Data_RS.Open "select * from " & Data_RecordName(RecordIndex) & " order by Name ASC", Data_Cnn, 3, 3
+    '这里必须要指定读取顺序，否则顺序是不可预测的
+    
+    TV_SetTarget STV_Create(Data_RecordCaption(RecordIndex))
+    TV_ReadyToAdd Data_RS.RecordCount
+    
+    Dim Data_ItemsType As AC_ItemKind
+    
+    Select Case Data_RecordType(RecordIndex)
+    
+    Case Data_RT_Const, Data_RT_Declares
+    
+        If Data_RecordType(RecordIndex) = Data_RT_Const Then
+            Data_ItemsType = kUnUsedConst
+        Else
+            Data_ItemsType = kUnUsedMethod
+        End If
+        
+        Do While Not Data_RS.EOF
+            TV_AddItem RTrim(Data_RS.Fields("Name")), Data_RS.Fields("FullName"), Data_ItemsType
+            Data_RS.MoveNext
+        Loop
+        
+    Case Data_RT_Types
+    
+        Data_ItemsType = kUnUsedType
+        
+        Dim Data_RS_TypeItems As New ADODB.Recordset
+        Dim SC As String
+        
+        Do While Not Data_RS.EOF
+            Data_RS_TypeItems.Open "select * from TypeItems where TypeID = " & Data_RS.Fields("ID"), Data_Cnn, 3, 3
+            SC = "Type " & Data_RS.Fields("Name") & vbCrLf
+            Do While Not Data_RS_TypeItems.EOF
+                SC = SC & Data_RS_TypeItems.Fields("TypeItem") & vbCrLf
+                Data_RS_TypeItems.MoveNext
+            Loop
+            SC = SC & "End Type"
+            
+            Data_RS_TypeItems.Close
+            
+            TV_AddItem Data_RS.Fields("Name"), SC, kUnUsedType
+            
+            Data_RS.MoveNext
+        Loop
+        
+    End Select
+    
+    SetUsedMembers
+    
+    TV_FinishAdding
+    
+    Data_Close
+    
+End Sub
+
+Private Function ChangeItemType(ByVal Value As AC_ItemKind)
+    Select Case Value
+    Case kUnUsedConst
+        ChangeItemType = kConst
+    Case kUnUsedMethod
+        ChangeItemType = kMethod
+    Case kUnUsedType
+        ChangeItemType = kType
+    Case kConst
+        ChangeItemType = kUnUsedConst
+    Case kMethod
+        ChangeItemType = kUnUsedMethod
+    Case kType
+        ChangeItemType = kUnUsedType
+    End Select
+End Function
+
+Private Sub SetUsedMembers()
+    
+    If cmbRecord.ListIndex < 0 Then Exit Sub
+    
+    tvTarget.Visible = False
+    
+    Dim ItemsType As AC_ItemKind
+    ItemsType = ChangeItemType(Data_RecordType(cmbRecord.ListIndex) + 10)
+    
+    On Error Resume Next '用于避免查找不到元素所产生的错误
+    
+    Dim N As Node, C As VBComponent, m As Member
+    
+    For Each N In tvTarget.Nodes
+        If N.Image < 10 Then
+            N.Image = ChangeItemType(N.Image)
+            N.SelectedImage = N.Image
+        End If
+    Next
+    
+    For Each C In VBIns.ActiveVBProject.VBComponents
+        
+        If Not (C Is Nothing) Then
+        
+            For Each m In C.CodeModule.Members
+            
+                If (C.Type = vbext_ct_StdModule And (m.Scope = vbext_Public Or m.Scope = vbext_Friend)) Or _
+                   (C Is VBIns.SelectedVBComponent) Then
+                    
+                    If m.Type = ItemsType Then
+                        Set N = Nothing
+                        Set N = tvTarget.Nodes.Item(m.Name)
+                        If Not (N Is Nothing) Then
+                            N.Image = ItemsType
+                            N.SelectedImage = N.Image
+                        End If
+                    End If
+                    
+                End If
+                    
+            Next
+            
+        End If
+        
+    Next
+    
+    tvTarget.Visible = True
+
+End Sub
+
+Public Function Setting_Get(ByVal Section As String, ByVal KeyName As String, ByVal DefaultValue As String) As String
+    Dim Buffer As String * 255
+    Call GetPrivateProfileString(Section, KeyName, DefaultValue, Buffer, 255, FilePath & SettingFileName)
+    Setting_Get = Left$(Buffer, InStr(Buffer, Chr$(0)) - 1)
+End Function
+
+Public Sub Setting_Write(ByVal Section As String, ByVal KeyName As String, ByVal KeyValue As String)
+    If Dir(Environ("APPDATA") & "\iCode", vbDirectory) = "" Then
+        MkDir Environ("APPDATA") & "\iCode"
+    End If
+    Call WritePrivateProfileString(Section, KeyName, KeyValue, FilePath & SettingFileName)
+End Sub
+
+Private Sub Data_LoadRecordSetting()
+
+    Data_RecordCount = CLng(Setting_Get("API", "Count", "0"))
+    
+    ReDim Data_RecordName(Data_RecordCount)
+    ReDim Data_RecordCaption(Data_RecordCount)
+    ReDim Data_RecordFile(Data_RecordCount)
+    ReDim Data_RecordType(Data_RecordCount)
+    
+    Dim i As Long
+    For i = 0 To Data_RecordCount - 1
+        Data_RecordName(i) = Setting_Get("Record" & i, "Name", "")
+        Data_RecordCaption(i) = Setting_Get("Record" & i, "Caption", "")
+        Data_RecordFile(i) = FilePath & Setting_Get("Record" & i, "File", "")
+        Data_RecordType(i) = CLng(Setting_Get("Record" & i, "Type", ""))
+        cmbRecord.AddItem Data_RecordCaption(i), i
+    Next
+    
+End Sub
+
+Private Sub Data_Connect(ByVal FileName As String)
+    Data_Cnn.Open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & FileName
+    Data_RS.CursorLocation = adUseClient
+End Sub
+
+Private Sub Data_Close()
+    Data_RS.Close
+    Data_Cnn.Close
+End Sub
+
+Private Sub cmbRecord_Click()
+    If STV_Find(Data_RecordCaption(cmbRecord.ListIndex)) = -1 Then
+        Data_LoadToTV cmbRecord.ListIndex
+    Else
+        TV_SetTarget STV_Find(Data_RecordCaption(cmbRecord.ListIndex))
+    End If
+    VBCEvents_ItemSelected VBIns.SelectedVBComponent
+    SetUsedMembers
+End Sub
+
+Private Sub F_Key_Change()
+    
+    If Len(F_Key) = 0 Then Exit Sub
+    
+    Dim i As Long, j As Long, m As Long, N As Long
+    
+    For i = 1 To tvTarget.Nodes.count
+        If Len(tvTarget.Nodes.Item(i).Key) >= Len(F_Key) Then
+            j = 1
+            Do
+                If j > Len(F_Key) Then
+                    Set tvTarget.DropHighlight = tvTarget.Nodes.Item(i)
+                    Set tvTarget.SelectedItem = tvTarget.DropHighlight
+                    Exit Sub
+                End If
+                
+                If j > Len(tvTarget.Nodes.Item(i).Key) Then GoTo GoNext
+
+                If Mid(F_Key, j, 1) = LCase(Mid(tvTarget.Nodes.Item(i).Key, j, 1)) Then
+                    j = j + 1
+                Else
+GoNext:
+                    If j - 1 > m Then
+                        N = i
+                        m = j - 1
+                    End If
+                    Exit Do
+                End If
+            Loop
+        End If
+    Next
+    
+    If N <> 0 Then
+        Set tvTarget.SelectedItem = tvTarget.Nodes.Item(N)
+        Set tvTarget.DropHighlight = Nothing
+        Set tvTarget.SelectedItem = Nothing
+    End If
+    
+End Sub
+
+Private Sub SetLoadingBar(ByVal Maxiumn As Long, ByVal Caption As String)
+    
+    PBar.Max = Maxiumn
+    PBar.Value = 0
+    PBar.Visible = True
+    PBar.Top = tvTarget.Top + (tvTarget.Height - PBar.Height) / 2
+    PBar.Left = tvTarget.Left + UI_Dis
+    PBar.Width = tvTarget.Width - 2 * UI_Dis
+    
+    lblLoading.Caption = Caption
+    lblLoading.Visible = True
+    lblLoading.Top = PBar.Top - 2 * UI_Dis - lblLoading.Height
+    lblLoading.Left = PBar.Left + (PBar.Width - lblLoading.Width) / 2
+    
+End Sub
+
+Public Sub Unload()
+    
+    Dim i As Long, j As Long, k As Long, m As Long
+    
+    m = 1
+    For i = 0 To STV_Count
+        m = m + iTreeView(i).Nodes.count
+        iTreeView(i).Visible = False
+    Next
+    
+    k = 200
+    
+    SetLoadingBar m, "正在清理内存..."
+    
+    DoEvents
+    
+    For i = 0 To STV_Count
+        Do Until iTreeView(i).Nodes.count = 0
+            iTreeView(i).Nodes.Remove 1
+            PBar.Value = PBar.Value + 1
+            If PBar.Value = k Then
+                DoEvents
+                k = k + 200
+            End If
+        Loop
+        'If i <> 0 Then Unload iTreeView(i)
+        DoEvents
+    Next
+    
+    STV_Count = 0
+    
+    PBar.Visible = False
+    lblLoading.Visible = False
+    
+End Sub
+
+Private Sub mnuCopyDeclaration_Click()
+    If Not (tvTarget.DropHighlight Is Nothing) Then
+        Clipboard.SetText cmdScope.Caption & " " & tvTarget.DropHighlight.Tag
+    End If
+End Sub
+
+Private Sub mnuCopyName_Click()
+    If Not (tvTarget.DropHighlight Is Nothing) Then
+        Clipboard.SetText tvTarget.DropHighlight.Key
+    End If
+End Sub
+
+Private Sub mnuRefresh_Click()
+    cmdRefresh_Click
+End Sub
+
+Private Sub mnuReload_Click()
+    cmbRecord.Clear
+    cmbRecord.Text = "请选择"
+    Unload
+    Set tvTarget = Nothing
+    TV_SetTarget 0
+    Data_RecordCount = 0
+    Data_LoadRecordSetting
+End Sub
+
+Private Sub UserDocument_Initialize()
+    FilePath = App.Path & "\APIs\"
+    Set tvTarget = iTreeView(0)
+    Data_LoadRecordSetting
+    Set VBCEvents = VBIns.Events.VBComponentsEvents(Nothing)
+End Sub
+
+Private Sub UserDocument_Resize()
+    
+    On Error Resume Next '避免极端大小引发错误
+    
+    
+    If cmdScope.Left + cmdScope.Width + UI_Dis + lblModule.Width > UserDocument.ScaleWidth Then
+        lblModule.Left = UI_Dis
+        lblModule.Top = UserDocument.ScaleHeight - UI_Dis - lblModule.Height
+        cmdScope.Top = lblModule.Top - UI_Dis - cmdScope.Height
+    Else
+        lblModule.Left = cmdScope.Left + cmdScope.Width + UI_Dis
+        cmdScope.Top = UserDocument.ScaleHeight - UI_Dis - cmdScope.Height
+        lblModule.Top = cmdScope.Top + (cmdScope.Height - lblModule.Height) / 2
+    End If
+    
+    chkDeclaration.Top = cmdScope.Top - UI_Dis - chkDeclaration.Height
+    chkInsertName.Top = chkDeclaration.Top
+    
+    F_Key.Top = chkDeclaration.Top - UI_Dis - F_Key.Height
+    tvTarget.Height = F_Key.Top - UI_Dis - tvTarget.Top
+    
+    cmdRefresh.Left = UserDocument.ScaleWidth - UI_Dis - cmdRefresh.Width
+    cmbRecord.Width = cmdRefresh.Left - UI_Dis * 2
+    tvTarget.Width = UserDocument.ScaleWidth - UI_Dis * 2
+    F_Key.Width = tvTarget.Width
+    chkInsertName.Left = UserDocument.ScaleWidth - UI_Dis - chkInsertName.Width
+    
+End Sub
+
+Private Sub UserDocument_Show()
+    UserDocument_Resize
+End Sub
+
+Private Sub VBCEvents_ItemActivated(ByVal VBComponent As VBIDE.VBComponent)
+    SetUsedMembers
+End Sub
+
+Private Sub VBCEvents_ItemSelected(ByVal VBComponent As VBIDE.VBComponent)
+    lblModule.Caption = "插入位置：" & VBComponent.Name
+    If cmbRecord.ListIndex >= 0 Then
+        If Data_RecordType(cmbRecord.ListIndex) = Data_RT_Const And VBComponent.Type <> vbext_ct_StdModule Then
+            cmdScope.Caption = "Private"
+        ElseIf Not (VBComponent.CodeModule.CodePane Is VBIns.ActiveCodePane) Then
+            cmdScope.Caption = "Public"
+        End If
+    End If
+    UserDocument_Resize
+End Sub

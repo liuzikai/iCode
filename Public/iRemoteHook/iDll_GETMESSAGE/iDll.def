@@ -1,0 +1,8 @@
+LIBRARY iDll
+
+EXPORTS 
+SetHook @ 1
+RegisterMessage @ 2
+UnHook @ 3
+
+SECTIONS RemoteHookDll_GETMESSAGE_Data READ WRITE SHARED

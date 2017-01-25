@@ -1,0 +1,83 @@
+VERSION 5.00
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
+Begin VB.UserDocument udcResult 
+   ClientHeight    =   2235
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   4320
+   HScrollSmallChange=   225
+   ScaleHeight     =   2235
+   ScaleWidth      =   4320
+   ScrollBars      =   0  'None
+   VScrollSmallChange=   225
+   Begin MSFlexGridLib.MSFlexGrid Table 
+      Height          =   1755
+      Left            =   60
+      TabIndex        =   0
+      Top             =   300
+      Width           =   4035
+      _ExtentX        =   7117
+      _ExtentY        =   3096
+      _Version        =   393216
+      Cols            =   3
+      BackColorBkg    =   -2147483633
+      BorderStyle     =   0
+      Appearance      =   0
+   End
+   Begin VB.Label Label1 
+      Caption         =   "双击前往可能的错误位置"
+      Height          =   195
+      Left            =   120
+      TabIndex        =   1
+      Top             =   60
+      Width           =   3795
+   End
+End
+Attribute VB_Name = "udcResult"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+Option Explicit
+
+Private CodePane(300) As CodePane
+
+Private Sub Table_DblClick()
+    If Not (CodePane(Table.Row) Is Nothing) Then
+        Dim l As Long
+        l = Table.TextMatrix(Table.Row, 0)
+        CodePane(Table.Row).SetSelection l, 1, l, 1
+        CodePane(Table.Row).Show
+    End If
+End Sub
+
+Private Sub UserDocument_Initialize()
+    Table.ColWidth(0) = 600
+    Table.ColWidth(1) = 1000
+    UserDocument_Resize
+    Clear
+End Sub
+
+Private Sub UserDocument_Resize()
+    Table.Width = UserDocument.ScaleWidth - Table.Left * 2
+    Table.Height = UserDocument.ScaleHeight - Label1.Top - Table.Top
+    Table.ColWidth(2) = Table.Width - Table.ColWidth(0) - Table.ColWidth(1) - 20
+End Sub
+
+Public Sub Clear()
+    Table.Clear
+    Table.Rows = 1
+    Table.TextMatrix(0, 0) = "行数"
+    Table.TextMatrix(0, 1) = "模块"
+    Table.TextMatrix(0, 2) = "错误提示"
+End Sub
+
+Public Sub AddItem(ByVal Line As Long, ByVal Description As String, ByVal CP As CodePane)
+    Table.AddItem Line & vbTab & CP.CodeModule.Name & vbTab & Description
+    Set CodePane(Table.Rows - 1) = CP
+End Sub
+
+Public Property Get count() As Long
+    count = Table.Rows - 1
+End Property
+

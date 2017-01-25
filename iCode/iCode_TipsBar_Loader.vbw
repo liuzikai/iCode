@@ -1,0 +1,8 @@
+Connect = 130, 130, 844, 602, , -177, 28, 761, 747, C
+WndHook = 104, 104, 818, 576, 
+MsgHook = 78, 78, 792, 550, 
+iMiniWindow = 52, 52, 766, 524, 
+iRemoteHook = 26, 26, 740, 498, 
+modPublic = 0, 0, 714, 472, 
+iFunctions = 0, 0, 0, 0, C
+frmDebug = 0, 0, 0, 0, C, 208, 208, 922, 680, C

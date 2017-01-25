@@ -1,0 +1,51 @@
+Type=Exe
+Form=Form1.frm
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\..\Windows\System32\stdole2.tlb#OLE Automation
+UserControl=CloseButton.ctl
+UserControl=MinimizeButton.ctl
+UserControl=Button.ctl
+Class=aShadow; aShadow.cls
+Module=modPublic; modPublic.bas
+Object={F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0; COMDLG32.OCX
+ResFile32="..\资源文件生成\Setup.res"
+IconForm="frmMain"
+Startup="frmMain"
+HelpFile=""
+Title="iCode Setup"
+ExeName32="iCode Setup.exe"
+Path32="..\建档"
+Command32=""
+Name="iCode_Setup"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=2
+RevisionVer=0
+AutoIncrementVer=0
+ServerSupportFiles=0
+VersionComments="liuzikai@163.com"
+VersionCompanyName="Visual Basic 6.0"
+VersionFileDescription="iCode Setup"
+VersionProductName="iCode Setup"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[iCode_Linker]
+Setting=1,C:\Users\liuzi\Desktop\iCode\Setup\图片\包装箱子图标下载955.ico,0,0,0,
+
+[iCode_Windows]
+LastBuildFile=C:\Users\liuzi\Desktop\iCode\Setup\建档\iCode Setup.exe
+LastComponentFile=C:\Users\liuzi\Desktop\iCode\Setup\iCode Setup.exe

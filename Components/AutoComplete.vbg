@@ -1,0 +1,3 @@
+VBGROUP 5.0
+Project=AutoComplete\iCode_AutoComplete.vbp
+StartupProject=AutoComplete\iCode_AutoComplete_Loader.vbp

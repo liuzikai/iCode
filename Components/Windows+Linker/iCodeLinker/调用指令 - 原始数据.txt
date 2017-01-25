@@ -1,0 +1,24 @@
+生成EXE
+
+C2:
+-il "C:\Users\liuzi\AppData\Local\Temp\VB563445" -f "Module1" -W 3 -Gy -G5 -Gs4096 -dos -Zl -Fo"C:\Users\liuzi\Desktop\Module1.OBJ" -QIfdiv -ML -basic
+
+
+LINK:
+"C:\Users\liuzi\Desktop\Module1.OBJ" "C:\Users\liuzi\Desktop\LINK.OBJ" "C:\Program Files\Microsoft Visual Studio\VB98\VBAEXE6.LIB" /ENTRY:__vbaS /OUT:"C:\Users\liuzi\Desktop\LINK.exe" /BASE:0x400000 /SUBSYSTEM:WINDOWS,4.0 /VERSION:1.0   /INCREMENTAL:NO /OPT:REF /MERGE:.rdata=.text /IGNORE:4078 
+
+
+生成DLL
+
+
+C2：
+-il "C:\Users\liuzi\AppData\Local\Temp\VB569970" -f "frmAddIn" -W 3 -Gy -G5 -Gs4096 -dos -Zl -Fo"C:\Users\liuzi\Desktop\frmAddIn.OBJ" -QIfdiv -ML -basic
+
+
+C2:
+-il "C:\Users\liuzi\AppData\Local\Temp\VB569971" -f "Connect" -W 3 -Gy -G5 -Gs4096 -dos -Zl -Fo"C:\Users\liuzi\Desktop\Connect.OBJ" -QIfdiv -ML -basic
+
+LINK:
+"C:\Users\liuzi\Desktop\frmAddIn.OBJ" "C:\Users\liuzi\Desktop\Connect.OBJ" "C:\Users\liuzi\Desktop\MyAddIn.OBJ" "C:\Program Files\Microsoft Visual Studio\VB98\VBAEXE6.LIB" /ENTRY:__vbaS /OUT:"C:\Users\liuzi\Desktop\MyAddIn.dll" /BASE:0x11000000 /SUBSYSTEM:WINDOWS,4.0 /VERSION:1.0 /DLL  /INCREMENTAL:NO /OPT:REF /MERGE:.rdata=.text /IGNORE:4078 
+
+

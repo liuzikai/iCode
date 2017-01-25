@@ -1,0 +1,10 @@
+for i=1 to 2
+for j=1 to 2
+if a=a then
+do
+do
+loop
+loop
+else
+do
+next

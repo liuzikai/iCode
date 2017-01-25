@@ -1,0 +1,15 @@
+VbaWindow In&Out CallWndProcMsg:
+
+Out:
+Msg Is: &H7
+Msg Is: &H83
+Msg Is: &H5
+Msg Is: &H83
+
+In:
+Msg Is: &H7
+Msg Is: &H83
+Msg Is: &H22
+Msg Is: &H5
+Msg Is: &H83
+Msg Is: &H7

@@ -1,0 +1,3 @@
+VBGROUP 5.0
+Project=CodeStatistic\iCode_Statistic.vbp
+StartupProject=CodeStatistic\iCode_Statistic_Loader.vbp

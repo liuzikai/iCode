@@ -1,0 +1,56 @@
+Type=OleDll
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\..\Windows\System32\stdole2.tlb#OLE Automation
+Reference=*\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#..\..\..\..\..\..\Program Files\Microsoft Office\Root\VFS\ProgramFilesCommonX86\Microsoft Shared\OFFICE16\MSO.DLL#Microsoft Office 8.0 Object Library
+Reference=*\G{AC0714F2-3D04-11D1-AE7D-00A0C90F26F4}#1.0#0#..\..\..\..\..\..\Program Files\Common Files\DESIGNER\MSADDNDR.OLB#Add-In Designer/Instance Control Library
+Reference=*\G{EF404E00-EDA6-101A-8DAF-00DD010F7EBB}#5.3#0#..\..\..\..\..\..\Program Files\Microsoft Visual Studio\VB98\VB6EXT.OLB#Microsoft Visual Basic 6.0 Extensibility
+Class=clsWindowsHandler; clsWindowsControler.cls
+Form=frmDebug.frm
+Class=TasksCollection; TasksCollection.cls
+Module=modPublic; modPublic.bas
+Module=iFunctions; ..\..\Public\iFunctions.bas
+Object={F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0; COMDLG32.OCX
+Form=iCodeLinker\frmLinkerTool.frm
+Class=clsLinker; clsLinker.cls
+Form=frmContainer.frm
+Startup="(None)"
+HelpFile=""
+Title="iCode_Windows"
+ExeName32="iCode_Windows.dll"
+Path32="..\..\Dlls"
+Command32=""
+Name="iCode_Windows"
+HelpContextID="0"
+Description="iCode - Windows"
+CompatibleMode="1"
+CompatibleEXE32="..\..\Dlls\iCode_Windows.dll"
+MajorVer=1
+MinorVer=2
+RevisionVer=141
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionCompanyName="Visual Basic 6.0"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=1
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+DebugStartupOption=0
+
+[MS Transaction Server]
+AutoRefresh=1
+
+[iCode_Windows]
+Build=I:\iCode Plus\Dlls\Windows\iCode_Windows.dll
+
+[CodeSMART]
+Task_UID=20_08_16_23_00_34

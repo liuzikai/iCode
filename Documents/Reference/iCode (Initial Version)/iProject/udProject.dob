@@ -1,0 +1,1184 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
+Begin VB.UserDocument udProject 
+   ClientHeight    =   3960
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   2835
+   HScrollSmallChange=   15
+   ScaleHeight     =   264
+   ScaleMode       =   3  'Pixel
+   ScaleWidth      =   189
+   ScrollBars      =   0  'None
+   VScrollSmallChange=   15
+   Begin MSComctlLib.Toolbar iToolbar 
+      Align           =   1  'Align Top
+      Height          =   330
+      Left            =   0
+      TabIndex        =   1
+      Top             =   0
+      Width           =   2835
+      _ExtentX        =   5001
+      _ExtentY        =   582
+      ButtonWidth     =   609
+      ButtonHeight    =   582
+      Style           =   1
+      ImageList       =   "iImageList"
+      DisabledImageList=   "iImageList"
+      HotImageList    =   "iImageList"
+      _Version        =   393216
+      BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
+         NumButtons      =   9
+         BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "bOpen"
+            ImageIndex      =   20
+         EndProperty
+         BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "bClose"
+            ImageIndex      =   21
+         EndProperty
+         BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button4 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "bRefresh"
+            ImageIndex      =   25
+         EndProperty
+         BeginProperty Button5 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button6 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "bAdd"
+            ImageIndex      =   22
+         EndProperty
+         BeginProperty Button7 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Object.Visible         =   0   'False
+            Key             =   "bAddFolder"
+            ImageIndex      =   24
+         EndProperty
+         BeginProperty Button8 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button9 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "bRemove"
+            ImageIndex      =   18
+            BeginProperty ButtonMenus {66833FEC-8583-11D1-B16A-00C0F0283628} 
+               NumButtonMenus  =   2
+               BeginProperty ButtonMenu1 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "bRmDelete"
+                  Text            =   "清除文件夹内容(&C) (默认)"
+               EndProperty
+               BeginProperty ButtonMenu2 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "bRmUpdata"
+                  Text            =   "移动内容至上一级(&U)"
+               EndProperty
+            EndProperty
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.ImageList iImageList 
+      Left            =   1620
+      Top             =   2280
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   65535
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   26
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":0000
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":0352
+            Key             =   "Project"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":06A4
+            Key             =   "FOpen"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":09F6
+            Key             =   "FClose"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":0D48
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":119A
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":15EC
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":18DE
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":1BD0
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":1F22
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":2274
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":25C6
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":2918
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":2C6A
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":2FBC
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":330E
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":3662
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":39B6
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":3D08
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":405A
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":43AC
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":46FE
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":4A50
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":4DA2
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":50F4
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "udProject.dox":5446
+            Key             =   ""
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.TreeView iTreeView 
+      Height          =   3555
+      Left            =   0
+      TabIndex        =   0
+      Top             =   330
+      Width           =   2775
+      _ExtentX        =   4895
+      _ExtentY        =   6271
+      _Version        =   393217
+      Indentation     =   529
+      LineStyle       =   1
+      Sorted          =   -1  'True
+      Style           =   7
+      ImageList       =   "iImageList"
+      BorderStyle     =   1
+      Appearance      =   0
+   End
+   Begin VB.Timer timerSetActive 
+      Enabled         =   0   'False
+      Interval        =   50
+      Left            =   30
+      Top             =   3990
+   End
+End
+Attribute VB_Name = "udProject"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+Option Explicit
+
+Private Enum enmComponentType
+    ctFolder = 0
+    ctStdModule = 1
+    ctClassModule = 2
+    ctResFile = 4
+    ctVBForm = 5
+    ctVBMDIForm = 6
+    ctPropPage = 7
+    ctUserControl = 8
+    ctDocObject = 9
+    ctActiveXDesigner = 11
+End Enum
+
+Private WithEvents iComponentsEvents As VBComponentsEvents
+Attribute iComponentsEvents.VB_VarHelpID = -1
+Private WithEvents iVBProjectsEvents As VBProjectsEvents
+Attribute iVBProjectsEvents.VB_VarHelpID = -1
+
+Private m_ActiveC As Node
+Private m_ActiveP As Node
+
+Private ClickNode As Node
+Private DragNode As Node
+
+Dim mProject As CommandBar
+Dim mFile As CommandBar
+Dim mView As CommandBar
+
+Dim mPWProject As CommandBar
+Dim mPWC As CommandBar
+
+Dim mPSave As CommandBarControl
+Dim mPRemove As CommandBarControl
+
+Dim mCSave As CommandBarControl
+Dim mCSaveAs As CommandBarControl
+Dim mCRemove As CommandBarControl
+
+Dim mViewObject As CommandBarControl
+Dim mViewCode As CommandBarControl
+
+Dim mProjectStart As CommandBarControl
+Dim mProjectProperty As CommandBarControl
+
+Dim mPrint As CommandBarControl
+
+Private Declare Function GetMenu Lib "User32" (ByVal hWnd As Long) As Long
+Private Declare Function GetSubMenu Lib "User32" (ByVal hMenu As Long, ByVal nPos As Long) As Long
+Private Const MF_BYPOSITION = &H400&
+Private Const MF_BYCOMMAND = &H0&
+
+Private Declare Function SetMenuItemBitmaps Lib "User32" (ByVal hMenu As Long, ByVal nPosition As Long, ByVal wFlags As Long, ByVal hBitmapUnchecked As Long, ByVal hBitmapChecked As Long) As Long
+
+Dim hMenu As Long
+
+Public Enum enmProjectWindowMode
+    pwmClassic = 0
+    pwmI = 1
+End Enum
+
+Private m_Mode As enmProjectWindowMode
+
+Public Type typNode
+    Parent As String
+    Key As String
+    Text As String
+    Image As String
+    Expanded As Boolean
+End Type
+
+Private iNodes() As typNode
+Private ThereIsiNodes As Boolean
+
+Private WithEvents tvControler As clsTreeViewControler
+Attribute tvControler.VB_VarHelpID = -1
+Private tvc_Root As String
+Private tvc_Find As String
+Private tvc_InRoot As Boolean
+
+Dim hIDEProjectWindow As Long
+
+Public Property Get Mode() As enmProjectWindowMode
+    Mode = m_Mode
+End Property
+
+Public Property Let Mode(NewValue As enmProjectWindowMode)
+    If m_Mode = NewValue Then Exit Property
+    m_Mode = NewValue
+    
+    Dim i As Long
+    
+    If NewValue = pwmClassic Then
+        ReDim iNodes(1 To iTreeView.Nodes.Count)
+        For i = 1 To iTreeView.Nodes.Count
+            If Not (iTreeView.Nodes.item(i).Parent Is Nothing) Then iNodes(i).Parent = iTreeView.Nodes.item(i).Parent.Key
+            iNodes(i).Key = iTreeView.Nodes.item(i).Key
+            iNodes(i).Text = iTreeView.Nodes.item(i).Text
+            iNodes(i).Image = iTreeView.Nodes.item(i).Image
+            iNodes(i).Expanded = iTreeView.Nodes.item(i).Expanded
+        Next
+        
+        ThereIsiNodes = True
+        
+        ClearTreeView
+        
+        LoadComponents
+        
+        frmHidden.mnuModeClassic.Checked = True
+        frmHidden.mnuModeI.Checked = False
+        
+        frmHidden.mnuAddFolder.Visible = False
+        iToolbar.Buttons("bAddFolder").Visible = False
+    ElseIf NewValue = pwmI Then
+        If ThereIsiNodes = True Then
+            
+            ClearTreeView
+            
+            For i = 1 To UBound(iNodes)
+                With iNodes(i)
+                    If .Parent = "" Then
+                        iTreeView.Nodes.Add , , .Key, .Text, .Image
+                    Else
+                        If IsNumeric(.Image) Then
+                            iTreeView.Nodes.Add .Parent, tvwChild, .Key, .Text, CLng(.Image)
+                        Else
+                            iTreeView.Nodes.Add .Parent, tvwChild, .Key, .Text, .Image
+                        End If
+                    End If
+                    iTreeView.Nodes.item(i).Expanded = iNodes(i).Expanded
+                End With
+            Next
+        End If
+        frmHidden.mnuModeClassic.Checked = False
+        frmHidden.mnuModeI.Checked = True
+        
+        frmHidden.mnuAddFolder.Visible = True
+        iToolbar.Buttons("bAddFolder").Visible = True
+    End If
+    
+    Set m_ActiveP = Nothing
+    Set m_ActiveC = Nothing
+    
+    SetActiveItems
+End Property
+
+Private Sub ClearTreeView()
+    iTreeView.Nodes.Clear
+    Set m_ActiveC = Nothing
+    Set m_ActiveP = Nothing
+End Sub
+
+Private Sub iToolbar_ButtonClick(ByVal Button As MSComCtlLib.Button)
+    On Error Resume Next
+    Select Case Button.Key
+    Case "bOpen"
+        Me.mnuFolderOpen_Click
+        
+    Case "bClose"
+        Me.mnuFolderClose_Click
+    Case "bProperty"
+        Me.mnuProjectProperty_Click
+    Case "bAdd"
+        UserDocument.PopupMenu frmHidden.mnuAdd
+    Case "bAddFolder"
+        Me.mnuAddFolder_Click
+    Case "bRemove"
+        If iTreeView.SelectedItem.Tag = ctFolder Then
+            Me.mnuRemoveFolder_Click 0
+        Else
+            Me.mnuRemove_Click
+        End If
+    Case "bRmClean"
+        Me.mnuRemoveFolder_Click 0
+    Case "bRmUpdata"
+        Me.mnuRemoveFolder_Click 1
+    Case "bRefresh"
+        mnuRefresh_Click
+    End Select
+End Sub
+
+
+Private Property Get ActiveP() As Node
+    Set ActiveP = m_ActiveP
+End Property
+
+Private Property Set ActiveP(NewValue As Node)
+    If NewValue Is Nothing Then Exit Property
+    
+    If Not (m_ActiveP Is Nothing) Then m_ActiveP.Bold = False
+    
+    Set m_ActiveP = NewValue
+    m_ActiveP.Bold = True
+End Property
+
+Private Property Get ActiveC() As Node
+    Set ActiveC = m_ActiveC
+End Property
+
+Private Property Set ActiveC(NewValue As Node)
+    If NewValue Is Nothing Then Exit Property
+    
+    If Not (m_ActiveC Is Nothing) Then m_ActiveC.Bold = False
+    
+    Set m_ActiveC = NewValue
+    m_ActiveC.Bold = True
+End Property
+
+Private Function GetClassicFolder(nVar) As Variant
+    If IsNumeric(nVar) Then
+        If nVar = ctStdModule Then
+            GetClassicFolder = "模块"
+        ElseIf nVar = ctClassModule Then
+            GetClassicFolder = "类模块"
+        ElseIf nVar = ctResFile Then
+            GetClassicFolder = "资源文件"
+        ElseIf nVar = ctVBForm Then
+            GetClassicFolder = "窗体"
+        ElseIf nVar = ctVBMDIForm Then
+            GetClassicFolder = "MDI窗体"
+        ElseIf nVar = ctPropPage Then
+            GetClassicFolder = "属性页"
+        ElseIf nVar = ctUserControl Then
+            GetClassicFolder = "用户控件"
+        ElseIf nVar = ctDocObject Then
+            GetClassicFolder = "用户文档"
+        ElseIf nVar = ctActiveXDesigner Then
+            GetClassicFolder = "设计器"
+        End If
+    Else
+        If nVar = "模块" Then
+            GetClassicFolder = ctStdModule
+        ElseIf nVar = "类模块" Then
+            GetClassicFolder = ctClassModule
+        ElseIf nVar = "资源文件" Then
+            GetClassicFolder = ctResFile
+        ElseIf nVar = "窗体" Then
+            GetClassicFolder = ctVBForm
+        ElseIf nVar = "MDI窗体" Then
+            GetClassicFolder = ctVBMDIForm
+        ElseIf nVar = "属性页" Then
+            GetClassicFolder = ctPropPage
+        ElseIf nVar = "用户控件" Then
+            GetClassicFolder = ctUserControl
+        ElseIf nVar = "用户文档" Then
+            GetClassicFolder = ctDocObject
+        ElseIf nVar = "设计器" Then
+            GetClassicFolder = ctActiveXDesigner
+        End If
+    End If
+End Function
+
+Private Function bFolderExist(sKey As String) As Boolean
+    On Error GoTo iErr
+    Dim t As Node
+    Set t = iTreeView.Nodes.item(sKey)
+    bFolderExist = True
+    
+    Exit Function
+iErr:
+    bFolderExist = False
+End Function
+
+Private Function AddNode(sName As String, nType As enmComponentType, sProject As String) As Node
+    On Error GoTo iErr
+    
+    Dim sType As String
+    
+    If nType = ctFolder Then
+        Set AddNode = iTreeView.Nodes.Add(sProject, tvwChild, sProject & "-" & sName, sName, "FOpen")
+        AddNode.Tag = ctFolder
+        AddNode.Expanded = True
+        Exit Function
+    End If
+    
+    
+    sType = GetClassicFolder(nType)
+    
+    If bFolderExist(sProject & "-" & sType) = False Then AddNode sType, ctFolder, sProject
+    
+    
+    
+    Set AddNode = iTreeView.Nodes.Add(sProject & "-" & sType, tvwChild, sProject & "-" & sName, sName, 1)
+    AddNode.Tag = nType
+    
+    iTreeView.Sorted = True
+    
+    Exit Function
+iErr:
+    
+    
+End Function
+
+Private Sub iComponentsEvents_ItemActivated(ByVal VBComponent As VBIDE.VBComponent)
+    Set ActiveC = iTreeView.Nodes.item(VBComponent.Collection.Parent.Name & "-" & VBComponent.Name)
+End Sub
+
+Private Sub iComponentsEvents_ItemAdded(ByVal VBComponent As VBIDE.VBComponent)
+    Dim tNode As Node
+    Set tNode = AddNode(VBComponent.Name, VBComponent.type, VBComponent.Collection.Parent.Name)
+    Set ActiveC = tNode
+End Sub
+
+Private Sub RemoveNode(ByVal sKey As String)
+    If Not (ActiveC Is Nothing) Then If ActiveC.Key = sKey Then Set m_ActiveC = Nothing
+    If Not (ActiveP Is Nothing) Then If ActiveP.Key = sKey Then Set m_ActiveP = Nothing
+    iTreeView.Nodes.Remove sKey
+    
+    iTreeView.Sorted = True
+End Sub
+
+Private Sub iComponentsEvents_ItemRemoved(ByVal VBComponent As VBIDE.VBComponent)
+    If m_ActiveC.Text = VBComponent.Name Then Set m_ActiveC = Nothing
+    
+    If iTreeView.Nodes.item(VBComponent.Collection.Parent.Name & "-" & VBComponent.Name).Parent.Children <= 1 Then
+        RemoveNode iTreeView.Nodes.item(VBComponent.Collection.Parent.Name & "-" & VBComponent.Name).Parent.Key
+    Else
+        RemoveNode VBComponent.Collection.Parent.Name & "-" & VBComponent.Name
+    End If
+End Sub
+
+Private Sub iComponentsEvents_ItemRenamed(ByVal VBComponent As VBIDE.VBComponent, ByVal OldName As String)
+    iTreeView.Nodes.item(VBComponent.Collection.Parent.Name & "-" & OldName).Key = VBComponent.Collection.Parent.Name & "-" & VBComponent.Name
+    iTreeView.Nodes.item(VBComponent.Collection.Parent.Name & "-" & VBComponent.Name).Text = VBComponent.Name
+End Sub
+
+
+Private Sub iTreeView_AfterLabelEdit(Cancel As Integer, NewString As String)
+    If Not (NameExist(iTreeView.SelectedItem.Parent, NewString) Is Nothing) Then
+        Cancel = True
+        MsgBox "已存在相同名称文件夹！", vbExclamation, "MyAddIn"
+    Else
+        Cancel = False
+    End If
+End Sub
+
+Private Function NameExist(nParent As Node, sText As String) As Node
+    Dim tNode As Node
+    Set tNode = nParent.Child
+    Do Until tNode Is Nothing
+        If tNode.Text = sText Then
+            Set NameExist = tNode
+            Exit Function
+        End If
+        Set tNode = tNode.Next
+    Loop
+End Function
+
+Private Sub iTreeView_BeforeLabelEdit(Cancel As Integer)
+    If iTreeView.SelectedItem.Tag <> ctFolder Then Cancel = True
+End Sub
+
+Private Sub iTreeView_Collapse(ByVal Node As MSComCtlLib.Node)
+    If Node.Tag = ctFolder Then Node.Image = "FClose"
+End Sub
+
+Private Sub iTreeView_DblClick()
+    iTreeView.Sorted = True
+    
+    If ClickNode Is Nothing Then Exit Sub
+    
+    VBIns.VBProjects.item(Left$(ClickNode.Key, InStr(1, ClickNode.Key, "-") - 1)).VBComponents.item(ClickNode.Text).Activate
+    
+    Set ClickNode = Nothing
+    
+End Sub
+
+Private Sub iTreeView_DragDrop(Source As control, X As Single, Y As Single)
+    On Error GoTo iErr
+    If Mode = pwmClassic Then Exit Sub
+    If DragNode Is Nothing Then Exit Sub
+    
+    If Not (iTreeView.DropHighlight Is Nothing) Then
+        
+        Set DragNode.Parent = iTreeView.DropHighlight
+        Set iTreeView.DropHighlight = Nothing
+    End If
+    
+    Set DragNode = Nothing
+    iTreeView.Drag vbEndDrag
+iErr:
+    
+End Sub
+
+Private Sub iTreeView_DragOver(Source As control, X As Single, Y As Single, state As Integer)
+    If Mode = pwmClassic Then Exit Sub
+    If DragNode Is Nothing Then Exit Sub
+    
+    Dim TargetNode As Node
+    Set TargetNode = iTreeView.HitTest(X, Y)
+    
+    If TargetNode Is Nothing Then Exit Sub
+    
+    If TargetNode.Tag = "" Or TargetNode.Tag = ctFolder Then
+        Set iTreeView.DropHighlight = TargetNode
+        Set iTreeView.DragIcon = iImageList.ListImages(5).Picture
+    Else
+        Set iTreeView.DropHighlight = Nothing
+        Set iTreeView.DragIcon = iImageList.ListImages(6).Picture
+    End If
+End Sub
+
+Private Sub iTreeView_Expand(ByVal Node As MSComCtlLib.Node)
+    If Node.Tag = ctFolder Then Node.Image = "FOpen"
+End Sub
+
+Private Sub iTreeView_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = vbLeftButton Then
+        If Mode = pwmClassic Then Exit Sub
+        Set DragNode = iTreeView.HitTest(X, Y)
+    End If
+End Sub
+
+Private Sub iTreeView_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Button = vbLeftButton Then
+        If Mode = pwmClassic Then Exit Sub
+        If DragNode Is Nothing Then Exit Sub
+        
+        
+        Dim TargetNode As Node
+        Set TargetNode = iTreeView.HitTest(X, Y)
+        
+        
+        If TargetNode Is Nothing Then Exit Sub
+        Set iTreeView.SelectedItem = TargetNode
+        
+        If TargetNode.Tag = "" Or TargetNode.Tag = ctFolder Then
+            iTreeView.DragIcon = iImageList.ListImages(5).Picture
+        Else
+            iTreeView.DragIcon = iImageList.ListImages(6).Picture
+        End If
+        
+        iTreeView.Drag vbBeginDrag
+    End If
+End Sub
+
+Private Sub iTreeView_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Dim iNode As Node
+    Set iNode = iTreeView.HitTest(X, Y)
+    
+    If Not (iNode Is Nothing) Then
+        Set iTreeView.SelectedItem = iNode
+        If iNode.Tag = ctFolder And Mode = pwmI Then
+            iToolbar.Buttons("bRemove").Style = tbrDropdown
+        Else
+            iToolbar.Buttons("bRemove").Style = tbrDefault
+        End If
+    End If
+    
+    If Button = vbRightButton Then
+        If Not (iNode Is Nothing) Then
+            Set iTreeView.SelectedItem = iNode
+            If iNode.Tag = ctFolder Then
+                iToolbar.Buttons("bRemove").Style = tbrDropdown
+            Else
+                iToolbar.Buttons("bRemove").Style = tbrDefault
+            End If
+        Else
+            Set iTreeView.SelectedItem = Nothing
+        End If
+        With frmHidden
+            
+            If iNode Is Nothing Then
+                .mnuProjectStart.Visible = False
+                .mnuProjectProperty.Visible = True
+                
+                .mnuViewObject.Visible = False
+                .mnuViewCode.Visible = False
+                
+                .mnuFolderOpen.Visible = False
+                .mnuFolderClose.Visible = False
+                
+                .mnuSave.Visible = False
+                .mnuSaveAs.Visible = False
+                .mnuRemove.Visible = False
+                
+                .mnuRemoveFolder.Visible = False
+                
+                .mnuLine4.Visible = False
+                
+                UpdataMenu "", 0
+            Else
+                Select Case iNode.Tag
+                Case ""
+                    .mnuProjectStart.Visible = True
+                    .mnuProjectProperty.Visible = True
+                    
+                    .mnuViewObject.Visible = False
+                    .mnuViewCode.Visible = False
+                    
+                    .mnuFolderOpen.Visible = False
+                    .mnuFolderClose.Visible = False
+                    
+                    .mnuSave.Visible = True
+                    .mnuSaveAs.Visible = True
+                    .mnuRemove.Visible = True
+                    
+                    .mnuRemoveFolder.Visible = False
+                    
+                    .mnuLine4.Visible = True
+                    
+                    UpdataMenu iNode.Text, 1
+                Case ctFolder
+                    .mnuProjectStart.Visible = False
+                    .mnuProjectProperty.Visible = False
+                    
+                    .mnuViewObject.Visible = False
+                    .mnuViewCode.Visible = False
+                    
+                    .mnuFolderOpen.Visible = True
+                    .mnuFolderClose.Visible = True
+                    
+                    .mnuSave.Visible = False
+                    .mnuSaveAs.Visible = False
+                    .mnuRemove.Visible = False
+                    
+                    If Mode = pwmClassic Then
+                        .mnuRemoveFolder.Visible = False
+                    ElseIf Mode = pwmI Then
+                        .mnuRemoveFolder.Visible = True
+                    End If
+                    
+                    .mnuLine4.Visible = False
+                    
+                    UpdataMenu iNode.Text, 2
+                Case Else
+                    .mnuProjectStart.Visible = False
+                    .mnuProjectProperty.Visible = False
+                    
+                    .mnuViewObject.Visible = True
+                    .mnuViewCode.Visible = True
+                    
+                    .mnuFolderOpen.Visible = False
+                    .mnuFolderClose.Visible = False
+                    
+                    .mnuSave.Visible = True
+                    .mnuSaveAs.Visible = True
+                    .mnuRemove.Visible = True
+                    
+                    .mnuRemoveFolder.Visible = False
+                    
+                    .mnuLine4.Visible = True
+                    
+                    UpdataMenu iNode.Text, 3
+                End Select
+            End If
+            UserDocument.PopupMenu .mnuiProject
+            UserDocument.SetFocus
+        End With
+    End If
+    
+End Sub
+
+Private Sub iTreeView_NodeClick(ByVal Node As MSComCtlLib.Node)
+    If Node.Tag = "" Or Node.Tag = ctFolder Then Exit Sub
+    Set ClickNode = Node
+End Sub
+
+Private Sub iVBProjectsEvents_ItemActivated(ByVal VBProject As VBIDE.VBProject)
+    Set ActiveP = iTreeView.Nodes.item(VBProject.Name)
+End Sub
+
+Private Sub iVBProjectsEvents_ItemAdded(ByVal VBProject As VBIDE.VBProject)
+    ClearTreeView
+    
+    
+    LoadComponents
+    timerSetActive.Enabled = True
+End Sub
+
+Private Sub iVBProjectsEvents_ItemRemoved(ByVal VBProject As VBIDE.VBProject)
+    RemoveNode VBProject.Name
+End Sub
+
+Private Sub iVBProjectsEvents_ItemRenamed(ByVal VBProject As VBIDE.VBProject, ByVal OldName As String)
+    iTreeView.Nodes.item(OldName).Key = VBProject.Name
+    iTreeView.Nodes.item(VBProject.Name).Text = VBProject.Name
+End Sub
+
+Public Sub Init()
+    Set iComponentsEvents = VBIns.Events.VBComponentsEvents(Nothing)
+    Set iVBProjectsEvents = VBIns.Events.VBProjectsEvents
+    
+    LoadComponents
+    
+    LoadMenu
+    
+    InitTVControler
+    
+    timerSetActive.Enabled = True
+End Sub
+
+Public Sub LoadComponents()
+    Dim i As Long, j As Long
+    For i = 1 To VBIns.VBProjects.Count
+        Dim tNode As Node
+        Set tNode = iTreeView.Nodes.Add(, , VBIns.VBProjects.item(i).Name, VBIns.VBProjects.item(i).Name, "Project")
+        tNode.Expanded = True
+        
+        For j = 1 To VBIns.VBProjects.item(i).VBComponents.Count
+            With VBIns.VBProjects.item(i).VBComponents.item(j)
+                AddNode .Name, .type, VBIns.VBProjects.item(i).Name
+            End With
+        Next
+    Next
+    iTreeView.Sorted = True
+End Sub
+
+Public Function SetActiveItems() As Boolean
+    If VBIns.ActiveVBProject Is Nothing Then Exit Function
+    
+    If VBIns.SelectedVBComponent Is Nothing Then Exit Function
+    
+    If iTreeView.Nodes.item(VBIns.ActiveVBProject.Name & "-" & VBIns.SelectedVBComponent.Name) Is Nothing Then Exit Function
+    
+    Set ActiveP = iTreeView.Nodes.item(VBIns.ActiveVBProject.Name)
+    Set ActiveC = iTreeView.Nodes.item(VBIns.ActiveVBProject.Name & "-" & VBIns.SelectedVBComponent.Name)
+    
+    SetActiveItems = True
+End Function
+
+Public Sub mnuAddC_Click(Index As Integer)
+    mProject.Controls(Index).Execute
+End Sub
+
+Public Sub mnuPrint_Click()
+    modPublic.SetFocus hIDEProjectWindow
+    SetIDETreeViewSelection iTreeView.SelectedItem.Root.Key, iTreeView.SelectedItem.Text
+    mPrint.Execute
+    UserDocument.SetFocus
+End Sub
+
+Public Sub mnuProjectProperty_Click()
+    mProjectProperty.Execute
+End Sub
+
+Public Sub mnuRemove_Click()
+    Select Case iTreeView.SelectedItem.Tag
+    Case ""
+        mPRemove.Execute
+    Case ctFolder
+        
+    Case Else
+        mCRemove.Execute
+    End Select
+End Sub
+
+Public Sub mnuSave_Click()
+    Select Case iTreeView.SelectedItem.Tag
+    Case ""
+        mPSave.Execute
+    Case ctFolder
+        
+    Case Else
+        mCSave.Execute
+    End Select
+End Sub
+
+Public Sub mnuSaveAs_Click()
+    Select Case iTreeView.SelectedItem.Tag
+    Case ""
+        If VBIns.VBProjects.Count = 1 Then
+            mFile.Controls(6).Execute
+        ElseIf VBIns.VBProjects.Count > 1 Then
+            mFile.Controls(8).Execute
+        End If
+    Case ctFolder
+        
+    Case Else
+        mCSaveAs.Execute
+    End Select
+End Sub
+
+Public Sub mnuViewCode_Click()
+    mViewCode.Execute
+End Sub
+
+Public Sub mnuViewObject_Click()
+    mViewObject.Execute
+End Sub
+
+Public Sub mnuModeClassic_Click()
+    Me.Mode = pwmClassic
+End Sub
+
+Public Sub mnuModeI_Click()
+    Me.Mode = pwmI
+End Sub
+
+Public Sub mnuFolderOpen_Click()
+    ECBelow iTreeView.SelectedItem, True, True
+End Sub
+
+Public Sub mnuFolderClose_Click()
+    ECBelow iTreeView.SelectedItem, True, False
+End Sub
+
+Public Sub mnuProjectStart_Click()
+    mProjectStart.Execute
+End Sub
+
+Public Sub mnuRemoveFolder_Click(Index As Long)
+    Dim i As Long
+    
+    If Index = 0 Then
+        If iTreeView.SelectedItem.Children = 0 Then Exit Sub
+        SetCParent iTreeView.SelectedItem, True
+    ElseIf Index = 1 Then
+        If iTreeView.SelectedItem.Children = 0 Then Exit Sub
+        
+        Dim nNode As Node, iRoot As Node
+        
+        Set iRoot = iTreeView.SelectedItem.Parent
+        Set nNode = iTreeView.SelectedItem.Child
+        For i = 2 To iTreeView.SelectedItem.Children
+            Set nNode.Parent = iRoot
+            Set nNode = nNode.Next
+        Next
+        Set nNode.Parent = iRoot
+    End If
+    RemoveNode iTreeView.SelectedItem.Key
+End Sub
+
+Public Sub mnuAddFolder_Click()
+    Dim tNode As Node
+    
+    Select Case iTreeView.SelectedItem.Tag
+    Case ctFolder, ""
+        Set tNode = NameExist(iTreeView.SelectedItem, "新文件夹")
+        If tNode Is Nothing Then
+            Set tNode = iTreeView.Nodes.Add(iTreeView.SelectedItem, tvwChild, "iFolder - " & CStr(Now), "新文件夹", "FClose")
+            tNode.Tag = ctFolder
+        End If
+    Case Else
+        Set tNode = NameExist(iTreeView.SelectedItem.Parent, "新文件夹")
+        If tNode Is Nothing Then
+            Set tNode = iTreeView.Nodes.Add(iTreeView.SelectedItem.Parent, tvwChild, "iFolder - " & CStr(Now), "新文件夹", "FClose")
+            tNode.Tag = ctFolder
+        End If
+    End Select
+    
+    Set iTreeView.SelectedItem = tNode
+    
+    iTreeView.StartLabelEdit
+End Sub
+
+Public Sub mnuRefresh_Click()
+    If Mode = pwmClassic Then
+        ClearTreeView
+        
+        LoadComponents
+        timerSetActive.Enabled = True
+    Else
+        Set ActiveP = Nothing
+        Set ActiveC = Nothing
+        timerSetActive.Enabled = True
+    End If
+End Sub
+
+Private Sub timerSetActive_Timer()
+    timerSetActive.Enabled = Not SetActiveItems
+End Sub
+
+
+
+Private Sub LoadMenu()
+    Set mProject = VBIns.CommandBars.item("Project")
+    Set mFile = VBIns.CommandBars.item("File")
+    Set mView = VBIns.CommandBars.item("View")
+    
+    Set mPWProject = VBIns.CommandBars.item("Project Window Project")
+    Set mPWC = VBIns.CommandBars.item("Project Window Module/Class Folder")
+    
+    Set mPSave = mPWProject.Controls(3)
+    Set mPRemove = mPWProject.Controls(4)
+    
+    Set mCSave = mPWC.Controls(4)
+    Set mCSaveAs = mPWC.Controls(5)
+    Set mCRemove = mPWC.Controls(6)
+    
+    Set mViewObject = mView.Controls(2)
+    Set mViewCode = mView.Controls(1)
+    
+    Set mProjectStart = mPWProject.Controls(1)
+    Set mProjectProperty = mProject.Controls(17)
+    
+    Set mPrint = mPWProject.Controls(7)
+    
+    Dim hMain As Long
+    hMain = GetMenu(frmHidden.hWnd)
+    
+    hMenu = GetSubMenu(hMain, 1)
+    Dim hMenuAdd As Long
+    
+    hMenuAdd = GetSubMenu(hMenu, 7)
+    
+    Dim i As Long
+    For i = 1 To 7
+        frmHidden.mnuAddC(i).Caption = mProject.Controls(i).Caption
+        Call SetMenuItemBitmaps(hMenuAdd, i - 1, MF_BYPOSITION, iImageList.ListImages(8 + i).Picture, iImageList.ListImages(8 + i).Picture)
+        
+    Next
+    frmHidden.mnuAddC(13).Caption = mProject.Controls(13).Caption
+    
+    Set mPrint = mFile.Controls("打印(&P)...")
+    
+End Sub
+
+Private Sub UpdataMenu(sName As String, nMode As Long)
+    Dim sNode As String
+    
+    
+    If nMode = 0 Then
+        Call SetMenuItemBitmaps(hMenu, 0, MF_BYPOSITION, iImageList.ListImages(19).Picture, iImageList.ListImages(19).Picture)
+        If Mode = pwmI Then
+            Call SetMenuItemBitmaps(hMenu, 3, MF_BYPOSITION, iImageList.ListImages(24).Picture, iImageList.ListImages(16).Picture)
+            Call SetMenuItemBitmaps(hMenu, 5, MF_BYPOSITION, iImageList.ListImages(26).Picture, iImageList.ListImages(26).Picture)
+        ElseIf Mode = pwmClassic Then
+            Call SetMenuItemBitmaps(hMenu, 4, MF_BYPOSITION, iImageList.ListImages(26).Picture, iImageList.ListImages(26).Picture)
+        End If
+    Else
+        
+        If iTreeView.SelectedItem Is Nothing Then Set iTreeView.SelectedItem = iTreeView.DropHighlight
+        If iTreeView.SelectedItem Is Nothing Then Exit Sub
+        
+        modPublic.SetFocus hIDEProjectWindow
+        SetIDETreeViewSelection iTreeView.SelectedItem.Root.Key, iTreeView.SelectedItem.Text
+        
+        
+        
+        Select Case iTreeView.SelectedItem.Tag
+        Case ""
+            sNode = "工程"
+        Case ctFolder
+            
+        Case Else
+            sNode = Left(mCSaveAs.Caption, InStr(1, mCSaveAs.Caption, " ") - 1)
+        End Select
+        
+        
+        frmHidden.mnuSave.Caption = "保存 " & sNode & " (&S)"
+        frmHidden.mnuSaveAs.Caption = "另存为 " & sNode & " (&V)"
+        frmHidden.mnuRemove.Caption = "移除 " & sNode & " (&R)"
+        
+        Select Case nMode
+            
+        Case 1
+            Call SetMenuItemBitmaps(hMenu, 1, MF_BYPOSITION, iImageList.ListImages(19).Picture, iImageList.ListImages(19).Picture)
+            If Mode = pwmI Then
+                Call SetMenuItemBitmaps(hMenu, 4, MF_BYPOSITION, iImageList.ListImages(24).Picture, iImageList.ListImages(16).Picture)
+                Call SetMenuItemBitmaps(hMenu, 6, MF_BYPOSITION, iImageList.ListImages(16).Picture, iImageList.ListImages(16).Picture)
+                Call SetMenuItemBitmaps(hMenu, 7, MF_BYPOSITION, iImageList.ListImages(17).Picture, iImageList.ListImages(17).Picture)
+                Call SetMenuItemBitmaps(hMenu, 8, MF_BYPOSITION, iImageList.ListImages(18).Picture, iImageList.ListImages(18).Picture)
+                Call SetMenuItemBitmaps(hMenu, 10, MF_BYPOSITION, iImageList.ListImages(26).Picture, iImageList.ListImages(26).Picture)
+                
+            ElseIf Mode = pwmClassic Then
+                Call SetMenuItemBitmaps(hMenu, 5, MF_BYPOSITION, iImageList.ListImages(16).Picture, iImageList.ListImages(16).Picture)
+                Call SetMenuItemBitmaps(hMenu, 6, MF_BYPOSITION, iImageList.ListImages(17).Picture, iImageList.ListImages(17).Picture)
+                Call SetMenuItemBitmaps(hMenu, 7, MF_BYPOSITION, iImageList.ListImages(18).Picture, iImageList.ListImages(18).Picture)
+                Call SetMenuItemBitmaps(hMenu, 9, MF_BYPOSITION, iImageList.ListImages(26).Picture, iImageList.ListImages(26).Picture)
+            End If
+        Case 2
+            Call SetMenuItemBitmaps(hMenu, 0, MF_BYPOSITION, iImageList.ListImages(20).Picture, iImageList.ListImages(20).Picture)
+            Call SetMenuItemBitmaps(hMenu, 1, MF_BYPOSITION, iImageList.ListImages(21).Picture, iImageList.ListImages(21).Picture)
+            If Mode = pwmI Then
+                Call SetMenuItemBitmaps(hMenu, 4, MF_BYPOSITION, iImageList.ListImages(24).Picture, iImageList.ListImages(16).Picture)
+                Call SetMenuItemBitmaps(hMenu, 5, MF_BYPOSITION, iImageList.ListImages(18).Picture, iImageList.ListImages(18).Picture)
+                Call SetMenuItemBitmaps(hMenu, 10, MF_BYPOSITION, iImageList.ListImages(26).Picture, iImageList.ListImages(26).Picture)
+            ElseIf Mode = pwmClassic Then
+                Call SetMenuItemBitmaps(hMenu, 9, MF_BYPOSITION, iImageList.ListImages(26).Picture, iImageList.ListImages(26).Picture)
+            End If
+        Case 3
+            Call SetMenuItemBitmaps(hMenu, 0, MF_BYPOSITION, iImageList.ListImages(7).Picture, iImageList.ListImages(7).Picture)
+            Call SetMenuItemBitmaps(hMenu, 1, MF_BYPOSITION, iImageList.ListImages(8).Picture, iImageList.ListImages(8).Picture)
+            If Mode = pwmI Then
+                Call SetMenuItemBitmaps(hMenu, 4, MF_BYPOSITION, iImageList.ListImages(24).Picture, iImageList.ListImages(16).Picture)
+                Call SetMenuItemBitmaps(hMenu, 6, MF_BYPOSITION, iImageList.ListImages(16).Picture, iImageList.ListImages(16).Picture)
+                Call SetMenuItemBitmaps(hMenu, 7, MF_BYPOSITION, iImageList.ListImages(17).Picture, iImageList.ListImages(17).Picture)
+                Call SetMenuItemBitmaps(hMenu, 8, MF_BYPOSITION, iImageList.ListImages(18).Picture, iImageList.ListImages(18).Picture)
+                Call SetMenuItemBitmaps(hMenu, 10, MF_BYPOSITION, iImageList.ListImages(26).Picture, iImageList.ListImages(26).Picture)
+            ElseIf Mode = pwmClassic Then
+                Call SetMenuItemBitmaps(hMenu, 5, MF_BYPOSITION, iImageList.ListImages(16).Picture, iImageList.ListImages(16).Picture)
+                Call SetMenuItemBitmaps(hMenu, 6, MF_BYPOSITION, iImageList.ListImages(17).Picture, iImageList.ListImages(17).Picture)
+                Call SetMenuItemBitmaps(hMenu, 7, MF_BYPOSITION, iImageList.ListImages(18).Picture, iImageList.ListImages(18).Picture)
+                Call SetMenuItemBitmaps(hMenu, 9, MF_BYPOSITION, iImageList.ListImages(26).Picture, iImageList.ListImages(26).Picture)
+            End If
+            
+        End Select
+    End If
+End Sub
+
+Private Sub tvControler_ViewItem(hWnd As Long, sText As String, nLevel As Long)
+    If nLevel = 0 Then
+        If InStr(1, sText, tvc_Root) <> 0 Then
+            tvc_InRoot = True
+            If tvc_Root = tvc_Find Then
+                tvControler.SelectNode hWnd
+            End If
+        Else
+            tvc_InRoot = False
+        End If
+    Else
+        If tvc_InRoot = True Then
+            If InStr(1, sText, tvc_Find) <> 0 Then
+                tvControler.SelectNode hWnd
+            End If
+        End If
+    End If
+End Sub
+
+Private Sub SetIDETreeViewSelection(sRoot As String, sItem As String)
+    tvc_Root = sRoot
+    tvc_Find = sItem
+    tvControler.ViewAllNode
+End Sub
+
+Public Sub ECBelow(nNode As Node, bIsFirst As Boolean, Optional bIsOpen As Boolean = True)
+    nNode.Expanded = bIsOpen
+    If Not bIsFirst And Not (nNode.Next Is Nothing) Then ECBelow nNode.Next, False, bIsOpen
+    If nNode.Children <> 0 Then ECBelow nNode.Child, False, bIsOpen
+End Sub
+
+Public Sub SetCParent(nNode As Node, bIsFirst As Boolean)
+    If Not bIsFirst Then
+        If nNode.Tag <> ctFolder Then Set nNode.Parent = nNode.Root
+    End If
+    If Not bIsFirst And Not (nNode.Next Is Nothing) Then SetCParent nNode.Next, False
+    If nNode.Children <> 0 Then SetCParent nNode.Child, False
+End Sub
+
+Private Sub UserDocument_Resize()
+    iTreeView.Top = iToolbar.Top + iToolbar.Height + 3
+    iTreeView.Width = UserDocument.ScaleWidth - iTreeView.Left * 2 - 2
+    iTreeView.Height = UserDocument.ScaleHeight - iTreeView.Top - iTreeView.Left
+End Sub
+
+Private Sub UserDocument_Show()
+    UserDocument_Resize
+End Sub
+
+Public Sub InitTVControler()
+    Dim h As Long, hProjectWnd As Long
+    Dim i As Long
+    
+    h = FindWindowEx(hVBIDE, 0, "VBFloatingPalette", vbNullString)
+    hIDEProjectWindow = h
+    h = FindWindowEx(h, 0, "PROJECT", vbNullString)
+    h = FindWindowEx(h, 0, "SysTreeView32", "")
+    
+    If h = 0 Then
+        h = FindWindowEx(hVBIDE, 0, "PROJECT", vbNullString)
+        hIDEProjectWindow = h
+        h = FindWindowEx(h, 0, "SysTreeView32", "")
+    End If
+    
+    Set tvControler = New clsTreeViewControler
+    tvControler.SetTreeViewHwnd h
+End Sub

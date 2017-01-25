@@ -1,0 +1,8 @@
+clsWindowsHandler = 230, 164, 460, 328, 
+frmDebug = 125, 125, 957, 655, , 75, 75, 907, 606, C
+TasksCollection = 100, 100, 932, 630, 
+modPublic = 230, 328, 460, 492, 
+iFunctions = 230, 492, 460, 656, 
+frmLinkerTool = 460, 0, 690, 131, , 130, 130, 844, 602, C
+clsLinker = 460, 131, 690, 262, 
+frmContainer = 0, 0, 832, 530, C, 182, 182, 896, 654, C

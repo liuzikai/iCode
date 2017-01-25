@@ -1,0 +1,142 @@
+'窗体玻璃化效果来自 百度贴吧 - Snake_1999 （原帖地址：http://tieba.baidu.com/p/1459258992）
+Option Explicit
+
+Private Declare Function DwmIsCompositionEnabled Lib "DwmApi.dll" (ByRef Enabled As Boolean) As Long
+Private Declare Function DwmEnableComposition Lib "DwmApi.dll" (ByVal compositionAction As CompositionEnable) As Long
+
+Private Declare Function DwmExtendFrameIntoClientArea Lib "DwmApi.dll" (ByVal hWnd As Long, ByRef m As MARGINS) As Long
+Private Declare Function DwmEnableBlurBehindWindow Lib "DwmApi.dll" (ByVal hWnd As Long, ByRef bb As DWM_BLURBEHIND) As Long
+
+Private Enum CompositionEnable
+    DWM_EC_DISABLECOMPOSITION = 0
+    DWM_EC_ENABLECOMPOSITION = 1
+End Enum
+
+Private Enum DwmBlurBehindDwFlags
+    DWM_BB_ENABLE = 1
+    DWM_BB_BLURREGION = 2
+    DWM_BB_TRANSITIONONMAXIMIZED = 4
+End Enum
+
+Private Type DWM_BLURBEHIND
+    dwFlags As DwmBlurBehindDwFlags
+    fEnable As Boolean
+    hRgnBlur As Long
+    fTransitionOnMaximized As Boolean
+End Type
+
+Private Type MARGINS
+    cxLeftWidth As Long
+    cxRightWidth As Long
+    cyBottomHeight As Long
+    cyTopHeight As Long
+End Type
+
+
+Private Const TV_FIRST = &H1100
+Private Const TVM_SETBKCOLOR = (TV_FIRST + 29)
+Private Const TVM_SETTEXTCOLOR As Long = (TV_FIRST + 30)
+
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+
+
+Private Sub Glass(ByVal hWnd As Long)
+    Dim b As DWM_BLURBEHIND
+    b.dwFlags = DWM_BB_ENABLE
+    b.fEnable = True
+    b.fTransitionOnMaximized = True
+    b.hRgnBlur = vbNull
+    DwmEnableBlurBehindWindow hWnd, b
+End Sub
+
+Private Sub NoGlass(ByVal hWnd As Long)
+    Dim d As DWM_BLURBEHIND
+    d.dwFlags = DWM_BB_ENABLE
+    d.fEnable = False
+    d.fTransitionOnMaximized = True
+    d.hRgnBlur = vbNull
+    DwmEnableBlurBehindWindow Me.hWnd, d
+End Sub
+
+'用于控制整个系统Aero效果的启用和禁用
+Private Sub Aero()
+    Dim c As Boolean
+    DwmIsCompositionEnabled c
+    DwmEnableComposition IIf(c, DWM_EC_DISABLECOMPOSITION, DWM_EC_ENABLECOMPOSITION)
+End Sub
+
+
+Private Sub iAddNode(Optional Relative, Optional Relationship As TreeRelationshipConstants, Optional Key, Optional Text, Optional Image, Optional SelectImage)
+    Dim tN As Node
+    Set tN = iTreeView.Nodes.Add(Relative, Relationship, Key, Text, Image, SelectImage)
+    'tN.BackColor = i_BackColor
+    'tN.ForeColor = i_TextColor
+End Sub
+
+Private Sub SetTreeView()
+'    iAddNode , , , "Item 1", 2
+'    iAddNode , , , "Item 2", 2
+'    iAddNode , , , "Item 3", 2
+    
+    'SendMessage iTreeView.hWnd, TVM_SETBKCOLOR, 0&, ByVal i_BackColor
+End Sub
+
+Private Declare Function CoCreateGuid Lib "ole32.dll" (ByRef pguid As guid) As Long
+
+Private Type guid
+    Data1 As Long
+    Data4(0 To 7) As Byte
+    Data3 As Integer
+    Data2 As Integer
+End Type
+
+
+Public Function GetGUID() As String
+    Dim lRetVal As Long
+    Dim udtGuid As guid
+    
+    Dim sPartOne As String
+    Dim sPartTwo As String
+    Dim sPartThree As String
+    Dim sPartFour As String
+    Dim iDataLen As Integer
+    Dim iStrLen As Integer
+    Dim iCtr As Integer
+    Dim sAns As String
+    
+    On Error GoTo ErrorHandler
+    
+    sAns = ""
+    
+    lRetVal = CoCreateGuid(udtGuid)
+    
+    If lRetVal = 0 Then
+        
+        sPartOne = Hex$(udtGuid.Data1)
+        iStrLen = Len(sPartOne)
+        iDataLen = Len(udtGuid.Data1)
+        sPartOne = String((iDataLen * 2) - iStrLen, "0") & Trim$(sPartOne)
+        
+        sPartTwo = Hex$(udtGuid.Data2)
+        iStrLen = Len(sPartTwo)
+        iDataLen = Len(udtGuid.Data2)
+        sPartTwo = String((iDataLen * 2) - iStrLen, "0") & Trim$(sPartTwo)
+        
+        sPartThree = Hex$(udtGuid.Data3)
+        iStrLen = Len(sPartThree)
+        iDataLen = Len(udtGuid.Data3)
+        sPartThree = String((iDataLen * 2) - iStrLen, "0") & Trim$(sPartThree)
+        
+        For iCtr = 0 To 7
+            sPartFour = sPartFour & Format$(Hex$(udtGuid.Data4(iCtr)), "00")
+        Next
+        
+        sAns = sPartOne & sPartTwo & sPartThree & sPartFour
+    End If
+    
+    GetGUID = sAns
+    Exit Function
+    
+ErrorHandler:
+    Exit Function
+End Function
