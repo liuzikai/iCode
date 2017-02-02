@@ -4,4 +4,4 @@ clsColorCode = 130, 130, 844, 601,
 ButtonCollection = 156, 156, 873, 627, 
 ButtonCollection_Item = 182, 182, 899, 653, 
 modPublic = 156, 156, 873, 627, 
-frmSetting = 291, 28, 1008, 499, Z, 208, 208, 925, 679, C
+frmSetting = 291, 28, 1008, 499, , 208, 208, 925, 679, C

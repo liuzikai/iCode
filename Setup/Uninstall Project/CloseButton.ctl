@@ -1,6 +1,7 @@
 VERSION 5.00
 Begin VB.UserControl CloseButton 
    BackColor       =   &H00404040&
+   CanGetFocus     =   0   'False
    ClientHeight    =   480
    ClientLeft      =   0
    ClientTop       =   0

@@ -21,13 +21,16 @@ Dim MakeExeButton As CommandBarButton
 Private iToolBar As CommandBar
 
 '=== Params ===
-Public ChangeScope_Button_Style As MsoButtonStyle
+Public m_ChangeScope_Button_Style As MsoButtonStyle
 Public m_ChangeScope_Button_Visible As Boolean
 
 Public m_Compile_Button_Visible As Boolean
 
-Public ToCommon_Button_Style As MsoButtonStyle
+Public m_ToCommon_Button_Style As MsoButtonStyle
 Public m_ToCommon_Button_Visible As Boolean
+
+Public m_MakeExeButton_Enabled As Boolean
+Public m_AddFile_Buttons_Enabled As Boolean
 
 '=== Buttons And Events ===
 
@@ -88,7 +91,7 @@ Private Sub Set_ToCommon_Button()
         .Caption = "→通用"
         .ToolTipText = "返回代码“通用”"
         .PasteFace
-        .Style = ToCommon_Button_Style
+        .Style = m_ToCommon_Button_Style
         .Visible = m_ToCommon_Button_Visible
     End With
     Set ToCommon_Button_Events = VBIns.Events.CommandBarEvents(ToCommon_Button)
@@ -101,7 +104,7 @@ Private Sub Set_ChangeScope_Button()
         .Caption = "Private←→Public"
         .ToolTipText = "互换当前行\选中内容\当前过程的“范围”标识"
         .PasteFace
-        .Style = ChangeScope_Button_Style
+        .Style = m_ChangeScope_Button_Style
         .Visible = m_ChangeScope_Button_Visible
     End With
     Set ChangeScope_Button_Events = VBIns.Events.CommandBarEvents(ChangeScope_Button)
@@ -123,24 +126,28 @@ End Function
 
 Private Sub Set_MakeExe_Button()
     
-    Dim btn As CommandBarControl
+    If m_MakeExeButton_Enabled Then
     
-    For Each btn In VBIns.CommandBars("File").Controls
-        If InStr(1, btn.Caption, "生成") <> 0 Then Set MakeExeButton = btn
-    Next
-    
-    Dim PWBar As CommandBar
-    Set PWBar = VBIns.CommandBars.Item("Project Window Project")
-    
-    If Not (PWBar Is Nothing) Then
-    
-        Set MakeExe_Button = PWBar.Controls.Add(MsoControlType.msoControlButton, , , PWBar.Controls("打印(&P)...").Index, True)
-        With MakeExe_Button
-            .Caption = "编译生成(&K)..."
-            .Style = msoButtonCaption
-            .BeginGroup = True
-        End With
-        Set MakeExe_Button_Events = VBIns.Events.CommandBarEvents(MakeExe_Button)
+        Dim btn As CommandBarControl
+        
+        For Each btn In VBIns.CommandBars("File").Controls
+            If InStr(1, btn.Caption, "生成") <> 0 Then Set MakeExeButton = btn
+        Next
+        
+        Dim PWBar As CommandBar
+        Set PWBar = VBIns.CommandBars.Item("Project Window Project")
+        
+        If Not (PWBar Is Nothing) Then
+        
+            Set MakeExe_Button = PWBar.Controls.Add(MsoControlType.msoControlButton, , , PWBar.Controls("打印(&P)...").Index, True)
+            With MakeExe_Button
+                .Caption = "编译生成(&K)..."
+                .Style = msoButtonCaption
+                .BeginGroup = True
+            End With
+            Set MakeExe_Button_Events = VBIns.Events.CommandBarEvents(MakeExe_Button)
+        
+        End If
     
     End If
     
@@ -177,42 +184,48 @@ Private Sub Call_Compile_Button()
 End Sub
 
 Private Sub Set_AddFiles_Buttons()
-
-    Set CommonDialog = frmContainer.CommonDialog1
-    With CommonDialog
-        .Flags = cdlOFNAllowMultiselect Or cdlOFNExplorer
-        .Filter = _
-            "VB 文件 (*.frm;*.ctl;*.dob;*.pag;*.dsr;*.bas;*.cls;*.res)|*.frm;*.ctl;*.dob;*.pag;*.dsr;*.bas;*.cls;*.res|" & _
-            "窗体文件 (*.frm)|*.frm|" & _
-            "模块文件 (*.bas)|*.bas|" & _
-            "类文件 (*.cls)|*.cls|" & _
-            "资源文件 (*.res)|*.res|" & _
-            "用户控件文件 (*.ctl)|*.ctl|" & _
-            "用户文档文件 (*.dob)|*.dob|" & _
-            "属性页文件 (*.pag)|*.pag|" & _
-            "设计器文件 (*.dsr)|*.dsr|" & _
-            "所有文件 (*.*)|*.*"
-    End With
     
-    Dim Bar As CommandBar
+    If m_AddFile_Buttons_Enabled Then
     
-    Set Bar = VBIns.CommandBars("Project Window Insert")
-    Set AddFiles_Button1 = Bar.Controls.Add(MsoControlType.msoControlButton, , , Bar.Controls("添加文件(&A)...").Index, True)
-    With AddFiles_Button1
-        .Caption = "添加文件(增强版)(&P) ..."
-        .ToolTipText = "添加文件(支持多个文件)"
-        .Style = msoButtonCaption
-    End With
-    Set AddFiles_Button1_Events = VBIns.Events.CommandBarEvents(AddFiles_Button1)
+        Set CommonDialog = frmContainer.CommonDialog1
+        With CommonDialog
+            .Flags = cdlOFNAllowMultiselect Or cdlOFNExplorer
+            .Filter = _
+                "VB 文件 (*.frm;*.ctl;*.dob;*.pag;*.dsr;*.bas;*.cls;*.res)|*.frm;*.ctl;*.dob;*.pag;*.dsr;*.bas;*.cls;*.res|" & _
+                "窗体文件 (*.frm)|*.frm|" & _
+                "模块文件 (*.bas)|*.bas|" & _
+                "类文件 (*.cls)|*.cls|" & _
+                "资源文件 (*.res)|*.res|" & _
+                "用户控件文件 (*.ctl)|*.ctl|" & _
+                "用户文档文件 (*.dob)|*.dob|" & _
+                "属性页文件 (*.pag)|*.pag|" & _
+                "设计器文件 (*.dsr)|*.dsr|" & _
+                "所有文件 (*.*)|*.*"
+        End With
+        
+        Dim Bar As CommandBar, Ctl As CommandBarControl
+        
+        Set Bar = VBIns.CommandBars("Project Window Insert")
+        Set Ctl = Bar.Controls("添加文件(&A)...")
+        Set AddFiles_Button1 = Bar.Controls.Add(MsoControlType.msoControlButton, , , Ctl.Index, True)
+        With AddFiles_Button1
+            .Caption = "添加文件(增强版)(&P) ..."
+            .ToolTipText = "添加文件(支持多个文件)"
+            .Style = msoButtonCaption
+        End With
+        Set AddFiles_Button1_Events = VBIns.Events.CommandBarEvents(AddFiles_Button1)
+        
+        Set Bar = VBIns.CommandBars("Project")
+        Set Ctl = Bar.Controls("添加文件(&A)...")
+        Set AddFiles_Button2 = Bar.Controls.Add(MsoControlType.msoControlButton, , , Ctl.Index, True)
+        With AddFiles_Button2
+            .Caption = "添加文件(增强版)(&P) ..."
+            .ToolTipText = "添加文件(支持多个文件)"
+            .Style = msoButtonCaption
+        End With
+        Set AddFiles_Button2_Events = VBIns.Events.CommandBarEvents(AddFiles_Button2)
     
-    Set Bar = VBIns.CommandBars("Project")
-    Set AddFiles_Button2 = Bar.Controls.Add(MsoControlType.msoControlButton, , , Bar.Controls("添加文件(&A)...").Index, True)
-    With AddFiles_Button2
-        .Caption = "添加文件(增强版)(&P) ..."
-        .ToolTipText = "添加文件(支持多个文件)"
-        .Style = msoButtonCaption
-    End With
-    Set AddFiles_Button2_Events = VBIns.Events.CommandBarEvents(AddFiles_Button2)
+    End If
     
 End Sub
 
@@ -268,10 +281,10 @@ Public Sub Initialize(ByVal IDEIns As VBE, ByVal DBForm As Object, ByVal ToolBar
 End Sub
 
 Public Sub Msg_ToExit()
-    ChangeScope_Button_Style = ChangeScope_Button.Style
+    m_ChangeScope_Button_Style = ChangeScope_Button.Style
     m_ChangeScope_Button_Visible = ChangeScope_Button.Visible
     m_Compile_Button_Visible = Compile_Button.Visible
-    ToCommon_Button_Style = ToCommon_Button.Style
+    m_ToCommon_Button_Style = ToCommon_Button.Style
     m_ToCommon_Button_Visible = ToCommon_Button.Visible
 End Sub
 

@@ -1,13 +1,14 @@
 VERSION 5.00
 Begin VB.UserControl MinimizeButton 
    BackColor       =   &H00404040&
-   ClientHeight    =   3600
+   CanGetFocus     =   0   'False
+   ClientHeight    =   390
    ClientLeft      =   0
    ClientTop       =   0
-   ClientWidth     =   4800
-   ScaleHeight     =   240
+   ClientWidth     =   495
+   ScaleHeight     =   26
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   320
+   ScaleWidth      =   33
    Begin VB.Line Line1 
       BorderColor     =   &H80000010&
       BorderWidth     =   3

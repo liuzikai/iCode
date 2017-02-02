@@ -2,6 +2,7 @@ VERSION 5.00
 Begin VB.Form frmMain 
    BackColor       =   &H00404040&
    BorderStyle     =   0  'None
+   Caption         =   "iCode 卸载程序"
    ClientHeight    =   4680
    ClientLeft      =   0
    ClientTop       =   0
@@ -15,7 +16,6 @@ Begin VB.Form frmMain
    Begin iCode_Uninstall.Button btnMain 
       Height          =   735
       Left            =   2730
-      TabIndex        =   2
       Top             =   1230
       Width           =   735
       _ExtentX        =   1296
@@ -37,7 +37,6 @@ Begin VB.Form frmMain
    Begin iCode_Uninstall.MinimizeButton MinimizeButton 
       Height          =   255
       Left            =   5340
-      TabIndex        =   1
       Top             =   120
       Width           =   255
       _ExtentX        =   661
@@ -46,7 +45,6 @@ Begin VB.Form frmMain
    Begin iCode_Uninstall.CloseButton CloseButton 
       Height          =   255
       Left            =   5820
-      TabIndex        =   0
       Top             =   120
       Width           =   255
       _ExtentX        =   661
@@ -56,7 +54,7 @@ Begin VB.Form frmMain
       Height          =   195
       Index           =   1
       Left            =   4920
-      Picture         =   "Form1.frx":1856A
+      Picture         =   "Form1.frx":0442
       Top             =   2280
       Visible         =   0   'False
       Width           =   195
@@ -65,7 +63,7 @@ Begin VB.Form frmMain
       Height          =   195
       Index           =   0
       Left            =   4560
-      Picture         =   "Form1.frx":187B6
+      Picture         =   "Form1.frx":068E
       Top             =   2280
       Visible         =   0   'False
       Width           =   195
@@ -86,14 +84,14 @@ Begin VB.Form frmMain
       ForeColor       =   &H00E0E0E0&
       Height          =   255
       Left            =   660
-      TabIndex        =   6
+      TabIndex        =   0
       Top             =   2640
       Width           =   1080
    End
    Begin VB.Image ccDeleteSetting 
       Height          =   195
       Left            =   300
-      Picture         =   "Form1.frx":18A02
+      Picture         =   "Form1.frx":08DA
       Tag             =   "0"
       Top             =   2655
       Width           =   195
@@ -101,21 +99,21 @@ Begin VB.Form frmMain
    Begin VB.Image ccSp6 
       Height          =   195
       Left            =   300
-      Picture         =   "Form1.frx":18C4E
+      Picture         =   "Form1.frx":0B26
       Top             =   3840
       Width           =   195
    End
    Begin VB.Image ccPath 
       Height          =   195
       Left            =   300
-      Picture         =   "Form1.frx":18E9A
+      Picture         =   "Form1.frx":0D72
       Top             =   3360
       Width           =   195
    End
    Begin VB.Image imgMain 
       Height          =   1155
       Left            =   2520
-      Picture         =   "Form1.frx":190E6
+      Picture         =   "Form1.frx":0FBE
       Top             =   1020
       Width           =   1155
    End
@@ -134,7 +132,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H00E0E0E0&
       Height          =   255
       Left            =   660
-      TabIndex        =   5
+      TabIndex        =   1
       Top             =   3810
       Width           =   4875
    End
@@ -154,7 +152,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H00E0E0E0&
       Height          =   255
       Left            =   660
-      TabIndex        =   4
+      TabIndex        =   2
       Top             =   3345
       Width           =   1140
    End
@@ -185,9 +183,11 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Private oShadow As New aShadow
+'Private oShadow As New aShadow
 
 Private Declare Function DeleteFile Lib "kernel32" Alias "DeleteFileA" (ByVal lpFileName As String) As Long
+
+Private bReset As Boolean
 
 Private Sub Uninstall()
 
@@ -198,7 +198,7 @@ Private Sub Uninstall()
     Dim i As Long, k As Long, f As String, s As String
     
     s = "@echo off" & vbCrLf & _
-        "sleep 700" & vbCrLf
+        "sleep 1000" & vbCrLf
     
     If ccDeleteSetting.Tag = "1" Then
         f = Environ("AppData") & "\iCode\Settings.ini"
@@ -242,7 +242,7 @@ Private Sub Uninstall()
     
     RegDeleteKey HKEY_LOCAL_MACHINE, "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\iCode"
 
-    s = s & "sleep 300" & vbCrLf & _
+    s = s & "sleep 500" & vbCrLf & _
             "rd """ & App.Path & """" & vbCrLf & _
             "del """ & Environ("Temp") & "\iCode_DeleteFile.bat"
     
@@ -256,15 +256,15 @@ Private Sub Uninstall()
     
 End Sub
 
-Private Sub LoadShadow()
-    With oShadow
-        If .Shadow(Me) Then
-            .Depth = 6 '阴影宽度
-            .Color = RGB(0, 0, 0) '阴影颜色
-            .Transparency = 36 '阴影色深
-        End If
-    End With
-End Sub
+'Private Sub LoadShadow()
+'    With oShadow
+'        If .Shadow(Me) Then
+'            .Depth = 6 '阴影宽度
+'            .Color = RGB(0, 0, 0) '阴影颜色
+'            .Transparency = 36 '阴影色深
+'        End If
+'    End With
+'End Sub
 
 Private Sub btnMain_Click()
     Select Case btnMain.Caption
@@ -287,27 +287,50 @@ End Sub
 Private Sub Form_Load()
     
     If Right(App.Path, 5) <> "iCode" Then
-        MsgBox "检测到当前目录不是默认安装目录，可能导致其他文件被误删除", vbCritical, "警告"
+        MsgBox "检测到当前目录不是默认安装目录，卸载程序将按照文件名删除文件，请注意！", vbCritical, "警告"
     End If
     
-    LoadShadow
+    'LoadShadow
     
 End Sub
 
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    CloseButton.Reset
-    MinimizeButton.Reset
-    btnMain.Reset
+    If Not bReset Then
+        CloseButton.Reset
+        MinimizeButton.Reset
+        btnMain.Reset
+        bReset = True
+    End If
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
-    If btnMain.Caption = "完成" Then Shell "cmd /c """ & Environ("Temp") & "\iCode_DeleteFile.bat"""
-    Set oShadow = Nothing
+    If btnMain.Caption = "完成" Then Shell "cmd /c """ & Environ("Temp") & "\iCode_DeleteFile.bat""", vbHide
+    'Set oShadow = Nothing
 End Sub
 
 Private Sub lblCaption_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Call Form_MouseDown(Button, Shift, 0, 0)
+End Sub
+
+Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     If Button = 1 Then
         ReleaseCapture
         Call SendMessage(Me.hWnd, WM_NCLBUTTONDOWN, HTCAPTION, ByVal 0&)
     End If
+End Sub
+
+Private Sub btnMain_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    bReset = False
+End Sub
+
+Private Sub CloseButton_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    bReset = False
+End Sub
+
+Private Sub MinimizeButton_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    bReset = False
+End Sub
+
+Private Sub MinimizeButton_Click()
+    Me.WindowState = vbMinimized
 End Sub

@@ -1,5 +1,5 @@
 frmDebug = 0, 0, 714, 472, , 182, 182, 896, 654, C
-clsIDEEnhancer = 460, 262, 690, 393, 
+clsIDEEnhancer = 460, 262, 690, 393, Z
 frmContainer = 52, 52, 766, 524, C, 156, 156, 870, 628, C
 modPublic = 182, 182, 896, 654, C
 CodeOperator = 460, 393, 690, 524, 

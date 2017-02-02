@@ -1,11 +1,11 @@
 VERSION 5.00
 Begin {AC0714F6-3D04-11D1-AE7D-00A0C90F26F4} Connect 
-   ClientHeight    =   10185
+   ClientHeight    =   10200
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   13830
    _ExtentX        =   24395
-   _ExtentY        =   17965
+   _ExtentY        =   17992
    _Version        =   393216
    Description     =   "iCode"
    DisplayName     =   "iCode"
@@ -297,12 +297,15 @@ Private Sub IDEEnhancer_Load()
     With IDEEnhancer
             
         .m_ChangeScope_Button_Visible = CBool(Settings_Get("IDEEnhancer", "ChangeScope_Button_Visible", True))
-        .ChangeScope_Button_Style = Settings_Get("IDEEnhancer", "ChangeScope_Button_Style", MsoButtonStyle.msoButtonIcon)
+        .m_ChangeScope_Button_Style = Settings_Get("IDEEnhancer", "ChangeScope_Button_Style", MsoButtonStyle.msoButtonIcon)
         
         .m_Compile_Button_Visible = CBool(Settings_Get("IDEEnhancer", "Compile_Button_Visible", True))
         
         .m_ToCommon_Button_Visible = CBool(Settings_Get("IDEEnhancer", "ToCommon_Button_Visible", True))
-        .ToCommon_Button_Style = Settings_Get("IDEEnhancer", "ToCommon_Button_Style", MsoButtonStyle.msoButtonIcon)
+        .m_ToCommon_Button_Style = Settings_Get("IDEEnhancer", "ToCommon_Button_Style", MsoButtonStyle.msoButtonIcon)
+        
+        .m_MakeExeButton_Enabled = CBool(Settings_Get("IDEEnhancer", "MakeExeButton_Enabled", False))
+        .m_AddFile_Buttons_Enabled = CBool(Settings_Get("IDEEnhancer", "AddFile_Buttons_Enabled", False))
         
         .Initialize VBIns, DebugForm, iToolBar
     
@@ -314,13 +317,15 @@ Private Sub IDEEnhancer_UnLoad()
 
     With IDEEnhancer
     
-        .Msg_ToExit
+        .Msg_ToExit '获取按钮信息
         
         Settings_Write "IDEEnhancer", "ChangeScope_Button_Visible", CStr(.m_ChangeScope_Button_Visible)
-        Settings_Write "IDEEnhancer", "ChangeScope_Button_Style", .ChangeScope_Button_Style
+        Settings_Write "IDEEnhancer", "ChangeScope_Button_Style", .m_ChangeScope_Button_Style
         Settings_Write "IDEEnhancer", "Compile_Button_Visible", CStr(.m_Compile_Button_Visible)
         Settings_Write "IDEEnhancer", "ToCommon_Button_Visible", CStr(.m_ToCommon_Button_Visible)
-        Settings_Write "IDEEnhancer", "ToCommon_Button_Style", .ToCommon_Button_Style
+        Settings_Write "IDEEnhancer", "ToCommon_Button_Style", .m_ToCommon_Button_Style
+        Settings_Write "IDEEnhancer", "MakeExeButton_Enabled", .m_MakeExeButton_Enabled
+        Settings_Write "IDEEnhancer", "AddFile_Buttons_Enabled", .m_AddFile_Buttons_Enabled
         
     End With
 

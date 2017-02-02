@@ -3,6 +3,7 @@ Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Begin VB.Form frmMain 
    BackColor       =   &H00404040&
    BorderStyle     =   0  'None
+   Caption         =   "iCode 安装程序"
    ClientHeight    =   4680
    ClientLeft      =   0
    ClientTop       =   0
@@ -23,42 +24,31 @@ Begin VB.Form frmMain
    Begin iCode_Setup.Button btnMain 
       Height          =   735
       Left            =   2730
-      TabIndex        =   2
       Top             =   1230
       Width           =   735
-      _ExtentX        =   1296
-      _ExtentY        =   1296
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "微软雅黑"
-         Size            =   10.5
-         Charset         =   134
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      FontBold        =   -1  'True
-      FontSize        =   10.5
-      Caption         =   "Hi"
-      ChangeBackColor =   0   'False
+      _extentx        =   1296
+      _extenty        =   1296
+      font            =   "Form1.frx":0442
+      fontbold        =   -1
+      fontsize        =   10.5
+      caption         =   "Hi"
+      changebackcolor =   0
    End
    Begin iCode_Setup.MinimizeButton MinimizeButton 
       Height          =   255
       Left            =   5340
-      TabIndex        =   1
       Top             =   120
       Width           =   255
-      _ExtentX        =   661
-      _ExtentY        =   661
+      _extentx        =   661
+      _extenty        =   661
    End
    Begin iCode_Setup.CloseButton CloseButton 
       Height          =   255
       Left            =   5820
-      TabIndex        =   0
       Top             =   120
       Width           =   255
-      _ExtentX        =   661
-      _ExtentY        =   556
+      _extentx        =   661
+      _extenty        =   556
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
@@ -76,36 +66,36 @@ Begin VB.Form frmMain
       ForeColor       =   &H00E0E0E0&
       Height          =   255
       Left            =   3180
-      TabIndex        =   6
+      TabIndex        =   0
       Top             =   4260
       Width           =   2850
    End
    Begin VB.Image ccSp6 
       Height          =   195
       Left            =   300
-      Picture         =   "Form1.frx":1856A
+      Picture         =   "Form1.frx":046A
       Top             =   3840
       Width           =   195
    End
    Begin VB.Image ccPath 
       Height          =   195
       Left            =   300
-      Picture         =   "Form1.frx":187B6
+      Picture         =   "Form1.frx":06B6
       Top             =   3120
       Width           =   195
    End
    Begin VB.Image imgMain 
       Height          =   1155
       Left            =   2520
-      Picture         =   "Form1.frx":18A02
+      Picture         =   "Form1.frx":0902
       Top             =   1020
       Width           =   1155
    End
    Begin VB.Image imgcc1 
       Height          =   195
-      Left            =   5700
-      Picture         =   "Form1.frx":1D00E
-      Top             =   2100
+      Left            =   5820
+      Picture         =   "Form1.frx":4F0E
+      Top             =   3840
       Visible         =   0   'False
       Width           =   195
    End
@@ -124,7 +114,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H00E0E0E0&
       Height          =   255
       Left            =   660
-      TabIndex        =   5
+      TabIndex        =   1
       Top             =   3810
       Width           =   4875
    End
@@ -143,11 +133,13 @@ Begin VB.Form frmMain
       ForeColor       =   &H00E0E0E0&
       Height          =   675
       Left            =   660
-      TabIndex        =   4
+      TabIndex        =   2
       Top             =   3105
       Width           =   5460
    End
    Begin VB.Label lblCaption 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
       BackStyle       =   0  'Transparent
       Caption         =   "iCode 安装"
       BeginProperty Font 
@@ -174,14 +166,12 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Private Const iVersion As String = "1.1"
-
-Private oShadow As New aShadow
+Private Const iVersion As String = "1.21"
 
 Private Path As String
 Private bVB6 As Boolean, bSp6 As Boolean
 
-
+Private bReset As Boolean
 
 Private Sub Install()
 
@@ -233,17 +223,8 @@ Private Sub Install()
         MsgBox "写入注册表失败！需要卸载时请手动运行卸载软件", vbExclamation, "iCode Setup"
     End If
     
+    btnMain.Caption = "完成"
     
-End Sub
-
-Private Sub LoadShadow()
-    With oShadow
-        If .Shadow(Me) Then
-            .Depth = 6 '阴影宽度
-            .Color = RGB(0, 0, 0) '阴影颜色
-            .Transparency = 36 '阴影色深
-        End If
-    End With
 End Sub
 
 Private Sub SelectPath_VB6()
@@ -277,7 +258,7 @@ End Sub
 
 Private Sub btnMain_Click()
     Select Case btnMain.Caption
-    Case "退出"
+    Case "完成"
         Unload Me
     Case "手动" & vbCrLf & "选择"
         If Not bVB6 Then
@@ -294,8 +275,16 @@ Private Sub btnMain_Click()
     End Select
 End Sub
 
+Private Sub btnMain_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    bReset = False
+End Sub
+
 Private Sub CloseButton_Click()
     Unload Me
+End Sub
+
+Private Sub CloseButton_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    bReset = False
 End Sub
 
 Private Sub Form_Load()
@@ -313,31 +302,41 @@ Private Sub Form_Load()
         btnMain.Caption = "手动" & vbCrLf & "选择"
     End If
     
-    LoadShadow
     
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    CloseButton.Reset
-    MinimizeButton.Reset
-    btnMain.Reset
-End Sub
-
-Private Sub Form_Unload(Cancel As Integer)
-    Set oShadow = Nothing
-End Sub
-
-Private Sub lblCaption_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     If Button = 1 Then
         ReleaseCapture
         Call SendMessage(Me.hWnd, WM_NCLBUTTONDOWN, HTCAPTION, ByVal 0&)
     End If
 End Sub
 
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    If Not bReset Then
+        CloseButton.Reset
+        MinimizeButton.Reset
+        btnMain.Reset
+        bReset = True
+    End If
+End Sub
+
+Private Sub lblCaption_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Call Form_MouseDown(Button, Shift, 0, 0)
+End Sub
+
 Private Sub lblPath_DblClick()
     SelectPath_VB6
 End Sub
 
-Private Sub lblSP6_Click()
+Private Sub lblSP6_DblClick()
     SelectPath_SP6
+End Sub
+
+Private Sub MinimizeButton_Click()
+    Me.WindowState = vbMinimized
+End Sub
+
+Private Sub MinimizeButton_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    bReset = False
 End Sub

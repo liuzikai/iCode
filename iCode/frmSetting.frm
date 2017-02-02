@@ -2,33 +2,33 @@ VERSION 5.00
 Begin VB.Form frmSetting 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "iCode 设置"
-   ClientHeight    =   6585
+   ClientHeight    =   7890
    ClientLeft      =   45
    ClientTop       =   375
-   ClientWidth     =   5295
+   ClientWidth     =   5460
    Icon            =   "frmSetting.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   439
+   ScaleHeight     =   526
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   353
+   ScaleWidth      =   364
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  '窗口缺省
    Begin VB.Frame Frame4 
       Caption         =   "代码缩进"
       Height          =   2475
-      Left            =   120
+      Left            =   60
       TabIndex        =   11
-      Top             =   2640
-      Width           =   5055
+      Top             =   3900
+      Width           =   5235
       Begin VB.Frame Frame6 
          Caption         =   "快捷按钮功能选择"
          Height          =   675
          Left            =   120
          TabIndex        =   18
          Top             =   1680
-         Width           =   4815
+         Width           =   4995
          Begin VB.OptionButton CI_QuickButton_Mode 
             Caption         =   "不显示"
             Height          =   195
@@ -73,7 +73,7 @@ Begin VB.Form frmSetting
          Left            =   120
          TabIndex        =   14
          Top             =   600
-         Width           =   4815
+         Width           =   4995
          Begin VB.TextBox CI_MultiLine_IndentSpaceCount 
             Appearance      =   0  'Flat
             Height          =   270
@@ -122,10 +122,10 @@ Begin VB.Form frmSetting
    Begin VB.Frame Frame3 
       Caption         =   "工作区标签栏"
       Height          =   735
-      Left            =   120
+      Left            =   60
       TabIndex        =   9
-      Top             =   5220
-      Width           =   5055
+      Top             =   6480
+      Width           =   5235
       Begin VB.CheckBox TBH_Enabled 
          Caption         =   "启用"
          Height          =   195
@@ -138,11 +138,27 @@ Begin VB.Form frmSetting
    End
    Begin VB.Frame Frame2 
       Caption         =   "IDE工具"
-      Height          =   1575
+      Height          =   2835
       Left            =   120
       TabIndex        =   4
       Top             =   960
-      Width           =   5055
+      Width           =   5175
+      Begin VB.CheckBox IDEE_AddFile_Buttons_Enabled 
+         Caption         =   "在“工程”菜单与“工程资源管理器”菜单中添加“添加文件(增强版)”按钮"
+         Height          =   360
+         Left            =   180
+         TabIndex        =   24
+         Top             =   1980
+         Width           =   4815
+      End
+      Begin VB.CheckBox IDEE_MakeExeButton_Enabled 
+         Caption         =   "在“工程资源管理器”中工程的右键菜单内添加编译按钮"
+         Height          =   180
+         Left            =   180
+         TabIndex        =   23
+         Top             =   1680
+         Width           =   4815
+      End
       Begin VB.CheckBox IDEE_Compile_Button_Visible 
          Caption         =   "显示“编译”按钮"
          Height          =   180
@@ -170,29 +186,39 @@ Begin VB.Form frmSetting
          Value           =   1  'Checked
          Width           =   3015
       End
+      Begin VB.Label Label2 
+         Caption         =   "以上两个选项可能导致VB原生按钮消失，重启VB生效"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   240
+         TabIndex        =   25
+         Top             =   2460
+         Width           =   4755
+      End
       Begin VB.Label Label1 
          Caption         =   "可通过 菜单栏 - 自定义 调整按钮样式"
+         ForeColor       =   &H00404040&
          Height          =   255
          Left            =   180
          TabIndex        =   8
-         Top             =   1260
+         Top             =   1200
          Width           =   3195
       End
    End
    Begin VB.CommandButton cmdCancel 
       Caption         =   "取消(&C)"
       Height          =   435
-      Left            =   4260
+      Left            =   4440
       TabIndex        =   3
-      Top             =   6060
+      Top             =   7320
       Width           =   855
    End
    Begin VB.CommandButton cmdOK 
       Caption         =   "确认(&S)"
       Height          =   435
-      Left            =   3240
+      Left            =   3420
       TabIndex        =   2
-      Top             =   6060
+      Top             =   7320
       Width           =   855
    End
    Begin VB.Frame Frame1 
@@ -201,7 +227,7 @@ Begin VB.Form frmSetting
       Left            =   120
       TabIndex        =   0
       Top             =   120
-      Width           =   5055
+      Width           =   5175
       Begin VB.CheckBox W_Redesign 
          Caption         =   "启用文件窗口重布局"
          Height          =   195
@@ -256,6 +282,8 @@ Private Sub cmdOK_Click()
     IDEEnhancer.ChangeScope_Button_Visible = CBool(IDEE_ChangeScope_Button_Visible.Value)
     IDEEnhancer.Compile_Button_Visible = CBool(IDEE_Compile_Button_Visible.Value)
     IDEEnhancer.ToCommon_Button_Visible = CBool(IDEE_ToCommon_Button_Visible.Value)
+    IDEEnhancer.m_MakeExeButton_Enabled = CBool(IDEE_MakeExeButton_Enabled.Value)
+    IDEEnhancer.m_AddFile_Buttons_Enabled = CBool(IDEE_AddFile_Buttons_Enabled.Value)
     
     Settings_Write "TipsBarHandler", "Enabled", CStr(CBool(TBH_Enabled.Value))
     TipsBarHandler.TipsBarAvliable = CBool(TBH_Enabled.Value)
@@ -293,5 +321,7 @@ Private Sub Form_Load()
     IDEE_ChangeScope_Button_Visible = -CLng(IDEEnhancer.m_ChangeScope_Button_Visible)
     IDEE_Compile_Button_Visible = -CLng(IDEEnhancer.m_Compile_Button_Visible)
     IDEE_ToCommon_Button_Visible = -CLng(IDEEnhancer.m_ToCommon_Button_Visible)
+    IDEE_MakeExeButton_Enabled = -CLng(IDEEnhancer.m_MakeExeButton_Enabled)
+    IDEE_AddFile_Buttons_Enabled = -CLng(IDEEnhancer.m_AddFile_Buttons_Enabled)
 End Sub
 
